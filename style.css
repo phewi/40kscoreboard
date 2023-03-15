@@ -1,0 +1,45 @@
+html{
+    height:100%;
+    
+}
+body{
+    overflow: hidden;
+    height:100%;
+    background-color: black;
+    color: white;
+    font-family: Modesto,Helvetica,sans-serif;
+}
+h1 {
+    text-transform: uppercase;
+    font-size: 4em;
+    
+}
+
+
+.textbox{
+    height:100%
+}
+.textbox-right{
+    margin-right: 50px;
+}
+.textbox-left{
+    margin-left: 50px;
+}
+
+#containerleft{
+    height:100%;
+    width: 50%;
+    float: left; 
+    background-image: url("dg2.jpg");
+    background-repeat:no-repeat;
+    background-position: left top;
+}
+#containerright{
+    height:100%;
+    width: 50%;
+    float: right; 
+    background-image: url("ig.jpg");
+    background-repeat:no-repeat;
+    background-position: right top;
+}
+.wrap_right{text-align:right}

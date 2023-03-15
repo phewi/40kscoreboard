@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"-->
+    <link href="style.css" rel="stylesheet" >
+
+    
+    <title>40k Scoreboard</title>
+  </head>
+  <body onload="letsago()">
+
+    <div id="containerleft">
+        <div class="textbox textbox-left">
+            <h1>Death <br>guard</h1>
+            <h2>Attacker</h2>
+            <h1><span id="vpleft"></span> VP </h1>
+            <h1><span id="cpleft"></span> CP </h1>
+        </div>
+    </div>
+    <div id="containerright">
+        <div class="textbox textbox-right">
+            <h1 class="wrap_right">Imperial <br>guard</h1>
+            <h2 class="wrap_right">Defender</h2>
+            <h1 class="wrap_right"><span id="vpright"></span> VP </h1>
+            <h1 class="wrap_right"><span id="cpright"></span> CP </h1>
+        </div>
+    </div>
+    <script>
+        var vpleft = 0;
+        var vpright = 0;
+        var cpleft = 6;
+        var cpright = 6;
+        
+        function letsago() {
+            document.getElementById("vpleft").innerHTML = vpleft;
+            document.getElementById("vpright").innerHTML = vpright;
+            document.getElementById("cpleft").innerHTML = cpleft;
+            document.getElementById("cpright").innerHTML = cpright;
+        }
+        //Increase left VP
+        document.addEventListener('keydown', function(event) {
+          if(event.code == 'KeyW' ) {
+                vpleft++
+                document.getElementById("vpleft").innerHTML = vpleft;
+            }
+        })
+        //Decrease left VP
+        document.addEventListener('keydown', function(event) {
+          if(event.code == 'KeyQ' ) {
+                vpleft--
+                document.getElementById("vpleft").innerHTML = vpleft;
+            }
+        })
+        //Increase left CP
+                document.addEventListener('keydown', function(event) {
+          if(event.code == 'KeyS' ) {
+                cpleft++
+                document.getElementById("cpleft").innerHTML = cpleft;
+            }
+        })
+        //Decrease left CP
+        document.addEventListener('keydown', function(event) {
+          if(event.code == 'KeyA' ) {
+                cpleft--
+                document.getElementById("cpleft").innerHTML = cpleft;
+            }
+        })
+
+        //Increase right VP
+        document.addEventListener('keydown', function(event) {
+          if(event.code == 'KeyR' ) {
+                vpright++
+                document.getElementById("vpright").innerHTML = vpright;
+            }
+        })
+        //Decrease right VP
+        document.addEventListener('keydown', function(event) {
+          if(event.code == 'KeyE' ) {
+                vpright--
+                document.getElementById("vpright").innerHTML = vpright;
+            }
+        })
+        //Increase right CP
+        document.addEventListener('keydown', function(event) {
+          if(event.code == 'KeyF' ) {
+                cpright++
+                document.getElementById("cpright").innerHTML = cpright;
+            }
+        })
+        //Decrease right CP
+        document.addEventListener('keydown', function(event) {
+          if(event.code == 'KeyD' ) {
+                cpright--
+                document.getElementById("cpright").innerHTML = cpright;
+            }
+        })
+    
+      </script>
+  </body>
+</html>
