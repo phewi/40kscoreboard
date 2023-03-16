@@ -7,13 +7,23 @@ body{
     height:100%;
     background-color: black;
     color: white;
-    font-family: Modesto,Helvetica,sans-serif;
+    font-family: Modesto,sans-serif;
+    background-image: url("igvsdg.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center top
 }
 h1 {
     text-transform: uppercase;
-    font-size: 4em;
+    font-size: 5em;
+   
+}
+h2 {
+    text-transform: uppercase;
+    font-size: 3em;
     
 }
+
 
 
 .textbox{
@@ -30,7 +40,7 @@ h1 {
     height:100%;
     width: 50%;
     float: left; 
-    background-image: url("dg2.jpg");
+    /*background-image: url("dg2.jpg");*/
     background-repeat:no-repeat;
     background-position: left top;
 }
@@ -38,8 +48,19 @@ h1 {
     height:100%;
     width: 50%;
     float: right; 
-    background-image: url("ig.jpg");
+    /*background-image: url("ig.jpg");*/
     background-repeat:no-repeat;
     background-position: right top;
 }
 .wrap_right{text-align:right}
+
+.faction{
+    margin: 0;
+}
+.role{
+    margin:0;
+}
+
+h3{
+    font-size: 2em;
+}
