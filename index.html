@@ -18,9 +18,9 @@
             <h1><span id="vpleft"></span> Victory points </h1>
             <h1><span id="cpleft"></span> Command points </h1>
             <h2>Secondary objectives</h2>
-            <h3> Secondary A</h3>
-            <h3> Secondary B</h3>
-            <h3> Secondary C</h3>
+            <h3>Assassination</h3>
+            <h3>Grind Them Down</h3>
+            <h3>Behind Enemy Lines</h3>
         </div>
     </div>
     <div id="containerright">
@@ -30,17 +30,18 @@
             <h1 class="wrap_right"> Victory points <span id="vpright"></span></h1>
             <h1 class="wrap_right"> Command points <span id="cpright"></span></h1>
             <h2 class="wrap_right">Secondary objectives</h2>
-            <h3 class="wrap_right"> Secondary A</h3>
-            <h3 class="wrap_right"> Secondary B</h3>
-            <h3 class="wrap_right"> Secondary C</h3>
+            <h3 class="wrap_right">Assassination</h3>
+            <h3 class="wrap_right">Grind Them Down</h3>
+            <h3 class="wrap_right">Behind Enemy Lines</h3>
             
         </div>
     </div>
     <script>
-        var vpleft = 0;
-        var vpright = 0;
-        var cpleft = 6;
-        var cpright = 6;
+        var vpleft = localStorage.getItem('vpleft');
+        var vpright = localStorage.getItem('vpright');
+        var cpleft = localStorage.getItem('cpleft');
+        var cpright = localStorage.getItem('cpright');
+        
         
         function letsago() {
             document.getElementById("vpleft").innerHTML = vpleft;
@@ -49,47 +50,66 @@
             document.getElementById("cpright").innerHTML = cpright;
         }
         
+        function increase(item){
+            value++
+            console.log(value);
+            document.getElementById(toString(item)).innerHTML = value;
+            localStorage.setItem(item,value)   
+            return value; 
+            }
+     
+                    
         document.addEventListener('keydown', function(event) {
             //Increase left VP
             if (event.isComposing || event.keyCode === 87) {
                 vpleft++
                 document.getElementById("vpleft").innerHTML = vpleft;
+                localStorage.setItem('vpleft',vpleft)
+                //increase("vpleft");
+                
             }
              //Decrease left VP
             if (event.isComposing || event.keyCode === 81) {
                 if(vpleft>0){vpleft--}
-                
                 document.getElementById("vpleft").innerHTML = vpleft;
+                localStorage.setItem('vpleft',vpleft);
+                //decrease("vpleft");
             }
             //Increase left CP
             if (event.isComposing || event.keyCode === 83) {
                 cpleft++
                 document.getElementById("cpleft").innerHTML = cpleft;
+                localStorage.setItem('cpleft',cpleft);
             }
             //Decrease left CP
             if (event.isComposing || event.keyCode === 65) {
                 if(cpleft>0){cpleft--}
                 document.getElementById("cpleft").innerHTML = cpleft;
+                localStorage.setItem('cpleft',cpleft);
             }
             //Increase right VP
             if (event.isComposing || event.keyCode === 82) {
                 vpright++
                 document.getElementById("vpright").innerHTML = vpright;
+                localStorage.setItem('vpright',vpright);
             }
             //Decrease right VP
             if (event.isComposing || event.keyCode === 69) {
                 if(vpright>0){vpright--}
                 document.getElementById("vpright").innerHTML = vpright;
+                localStorage.setItem('vpright',vpright);
             }
             //Increase right CP
             if (event.isComposing || event.keyCode === 70) {
                 cpright++
                 document.getElementById("cpright").innerHTML = cpright;
+                localStorage.setItem('cpright',cpright);
             }
             //Decrease right CP
             if (event.isComposing || event.keyCode === 68) {
                 if(cpright>0){cpright--}
                 document.getElementById("cpright").innerHTML = cpright;
+                localStorage.setItem('cpright',cpright);
             }
         })
       </script>
