@@ -23,3 +23,4 @@ Use background image opacity 50% to see the text better
   - [ ] Add primary objective descriptions
 - [ ] Select secondary objectives from a list
   - [ ] Add secondary objective descriptions
+- [ ] Separate views for editing/viewing (maybe)
