@@ -1,5 +1,5 @@
 # 40k Scoreboard
-This little web application is for our wargaming group to display the score by using a 1080p TV. I'm using a midi interface for easy control
+This little web application is for our wargaming group to display the score on a 1080p TV.
 
 ![alt text](https://github.com/phewi/40kscoreboard/blob/main/screenshot.png?raw=true)
 
@@ -12,6 +12,7 @@ You can increase and decrease the VP and CP by using these hotkeys
 
 Use background image opacity 50% to see the text better
 
-# Todo:
+# Todo
+- Remember score between reloads
 - Particle effects for bling
 - Edit mode
