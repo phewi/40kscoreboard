@@ -13,6 +13,6 @@ You can increase and decrease the VP and CP by using these hotkeys
 Use background image opacity 50% to see the text better
 
 # Todo
-- [x] Remember score between reloads
+- [x] ~~Remember score between reloads~~
 - [ ] Particle effects for bling
 - [ ] Edit mode
