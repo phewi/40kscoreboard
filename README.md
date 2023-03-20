@@ -14,8 +14,9 @@ Use background image opacity 50% to see the text better
 
 # Todo
 - [x] ~~Remember score between reloads~~
-- [ ] Display Primary objectives
-- [ ] Particle effects for bling
+- [x] Display Primary objective
+- [ ] Add clickable Buttons for VP from secondaries
+- [ ] Add clickable Buttons for VP from primary objective
 - [ ] Reset button
 - [ ] Select Factions from a list
   - [ ] Change background when a faction is selected
@@ -24,3 +25,4 @@ Use background image opacity 50% to see the text better
 - [ ] Select secondary objectives from a list
   - [ ] Add secondary objective descriptions
 - [ ] Separate views for editing/viewing (maybe)
+- [ ] Particle effects for bling

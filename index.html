@@ -11,28 +11,143 @@
     <title>40k Scoreboard</title>
   </head>
   <body onload="letsago()">
+    <div id="containerprimary">
+        <h3>MISSION</h3>
+        <p>Ascension</p>
+    </div>
     <div id="containerleft">
         <div class="textbox textbox-left">
             <h1 class="faction">Astra Militarum</h1>
             <h2 class="role">Attacker</h2>
-            <h1><span id="vpleft"></span> Victory points </h1>
-            <h1><span id="cpleft"></span> Command points </h1>
-            <h2>Secondary objectives</h2>
-            <h3>Assassination</h3>
-            <h3>Grind Them Down</h3>
-            <h3>Behind Enemy Lines</h3>
+            <h1><span id="vpleft"></span> VP <span id="cpleft"></span> CP</h1>
+            
+            <div id="containersecondaries">
+                <h2>Secondary objectives</h2>
+
+                <h3 class="sec"><span class="vpsecondary" id="leftsecondary1">
+                    <a class="vpbutton vpup" onclick="apuva('L1 ylös')">&#9652</a> 
+                    <a class="vpbutton vpdown" onclick="apuva('L1 alas')">&#9662</a><span style="margin-left:10px;">0/15</span></span>
+                    <select> 
+                    <option value="-- Select --">-- Select --</option>
+                    <option value="ASSASSINATION">ASSASSINATION</option>
+                    <option value="BRING IT DOWN">BRING IT DOWN</option>
+                    <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
+                    <option value="WARP RITUAL">WARP RITUAL</option>
+                    <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                    <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                    <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
+                    <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
+                </select>
+                    </h3>
+                <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"> 
+                    <a class="vpbutton vpup" onclick="apuva('L2ylös')">&#9652</a> 
+                    <a class="vpbutton vpdown"onclick="apuva('L2 alas')">&#9662</a><span style="margin-left:10px;">0/15</span></span>
+                    <select> 
+                    <option value="-- Select --">-- Select --</option>
+                    <option value="ASSASSINATION">ASSASSINATION</option>
+                    <option value="BRING IT DOWN">BRING IT DOWN</option>
+                    <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
+                    <option value="WARP RITUAL">WARP RITUAL</option>
+                    <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                    <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                    <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
+                    <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
+                </select>
+                    </h3>
+                <h3 class="sec"><span class="vpsecondary" id="leftsecondary1">
+                    <a class="vpbutton vpup" onclick="apuva('L3 ylös')">&#9652</a> 
+                    <a class="vpbutton vpdown"onclick="apuva('L3 alas')">&#9662</a><span style="margin-left:10px;">0/15</span></span>
+                    <select > 
+                    <option value="-- Select --">-- Select --</option>
+                    <option value="ASSASSINATION">ASSASSINATION</option>
+                    <option value="BRING IT DOWN">BRING IT DOWN</option>
+                    <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
+                    <option value="WARP RITUAL">WARP RITUAL</option>
+                    <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                    <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                    <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
+                    <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
+                </select>
+                    </h3>
+            </div>
         </div>
     </div>
     <div id="containerright">
         <div class="textbox textbox-right">
             <h1 class="faction wrap_right">Death Guard</h1>
             <h2 class="role wrap_right">Defender</h2>
-            <h1 class="wrap_right"> Victory points <span id="vpright"></span></h1>
-            <h1 class="wrap_right"> Command points <span id="cpright"></span></h1>
+            <h1 class="wrap_right"><span id="vpright"></span> VP <span id="cpright"></span> CP</h1>
             <h2 class="wrap_right">Secondary objectives</h2>
-            <h3 class="wrap_right">Assassination</h3>
-            <h3 class="wrap_right">Grind Them Down</h3>
-            <h3 class="wrap_right">Behind Enemy Lines</h3>
+            
+            <h3 class="wrap_right sec">
+                <select class="wrap_right"> 
+                    <option value="-- Select --">-- Select --</option>
+                    <option value="ASSASSINATION">ASSASSINATION</option>
+                    <option value="BRING IT DOWN">BRING IT DOWN</option>
+                    <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
+                    <option value="WARP RITUAL">WARP RITUAL</option>
+                    <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                    <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                    <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
+                    <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
+                </select>
+                <span class="vpsecondary" id="rightsecondary1">0/15 
+                <a class="vpbutton vpup" onclick="increase(R1)">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="apuva('R1 alas')">&#9662</a></span></h3>
+        <h3 class="wrap_right sec">
+            <select class="wrap_right"> 
+            <option value="-- Select --">-- Select --</option>
+            <option value="ASSASSINATION">ASSASSINATION</option>
+            <option value="BRING IT DOWN">BRING IT DOWN</option>
+            <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+            <option value="NO PRISONERS">NO PRISONERS</option>
+            <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
+            <option value="WARP RITUAL">WARP RITUAL</option>
+            <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+            <option value="NO PRISONERS">NO PRISONERS</option>
+            <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+            <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+            <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
+            <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>
+        </select> 
+            <span class="vpsecondary" id="rightsecondary1">0/15 
+                <a class="vpbutton vpup" onclick="apuva('R2 ylös')">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="apuva('R2 alas')">&#9662</a></span></h3>
+        <h3 class="wrap_right sec">
+            <select class="wrap_right"> 
+                <option value="-- Select --">-- Select --</option>
+                <option value="ASSASSINATION">ASSASSINATION</option>
+                <option value="BRING IT DOWN">BRING IT DOWN</option>
+                <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+                <option value="NO PRISONERS">NO PRISONERS</option>
+                <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
+                <option value="WARP RITUAL">WARP RITUAL</option>
+                <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+                <option value="NO PRISONERS">NO PRISONERS</option>
+                <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
+                <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
+            </select>
+            <span class="vpsecondary" id="rightsecondary1">0/15 
+                <a class="vpbutton vpup" onclick="apuva('R3 ylös')">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="apuva('R3 alas')">&#9662</a></span></h3>
             
         </div>
     </div>
@@ -42,7 +157,9 @@
         var cpleft = localStorage.getItem('cpleft');
         var cpright = localStorage.getItem('cpright');
         
-        
+        function apuva(kek){
+            console.log(kek)
+        }
         function letsago() {
             document.getElementById("vpleft").innerHTML = vpleft;
             document.getElementById("vpright").innerHTML = vpright;
