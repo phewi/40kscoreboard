@@ -17,7 +17,15 @@
     </div>
     <div id="containerleft">
         <div class="textbox textbox-left">
-            <h1 class="faction">Astra Militarum</h1>
+            <h1 class="faction">
+                <select >
+                    <option value="-- Select --">-- Select faction --</option>
+                    <option value="-- Select --">Astra Militarum</option>
+                    <option value="-- Select --">Death Guard</option>
+                    <option value="-- Select --">Necrons</option>
+                    <option value="-- Select --">Chaos Space Marines</option>
+                </select>  
+            </h1>
             <h2 class="role">Attacker</h2>
             <h1><span id="vpleft"></span> VP <span id="cpleft"></span> CP</h1>
             
@@ -86,7 +94,15 @@
     </div>
     <div id="containerright">
         <div class="textbox textbox-right">
-            <h1 class="faction wrap_right">Death Guard</h1>
+            <h1 class="faction wrap_right">
+                <select class="wrap_right"> 
+                    <option value="-- Select --">-- Select faction --</option>
+                    <option value="-- Select --">Astra Militarum</option>
+                    <option value="-- Select --">Death Guard</option>
+                    <option value="-- Select --">Necrons</option>
+                    <option value="-- Select --">Chaos Space Marines</option>
+                </select>  
+            </h1>
             <h2 class="role wrap_right">Defender</h2>
             <h1 class="wrap_right"><span id="vpright"></span> VP <span id="cpright"></span> CP</h1>
             <h2 class="wrap_right">Secondary objectives</h2>
