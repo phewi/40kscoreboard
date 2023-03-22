@@ -34,7 +34,9 @@
                 <h3 class="sec"><span class="vpsecondary" id="leftsecondary1">
                     <a class="vpbutton vpup" onclick="apuva('L1 ylös')">&#9652</a> 
                     <a class="vpbutton vpdown" onclick="apuva('L1 alas')">&#9662</a><span style="margin-left:10px;">0/15</span></span>
-                    <select> 
+                    </h3>
+                    <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
+                    <select class="secondaryselector"> 
                     <option value="-- Select --">-- Select --</option>
                     <option value="ASSASSINATION">ASSASSINATION</option>
                     <option value="BRING IT DOWN">BRING IT DOWN</option>
@@ -51,9 +53,12 @@
                 </select>
                     </h3>
                 <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"> 
+                    <span style="margin-left:10px;">0/15</span>
                     <a class="vpbutton vpup" onclick="apuva('L2ylös')">&#9652</a> 
-                    <a class="vpbutton vpdown"onclick="apuva('L2 alas')">&#9662</a><span style="margin-left:10px;">0/15</span></span>
-                    <select> 
+                    <a class="vpbutton vpdown"onclick="apuva('L2 alas')">&#9662</a></span>
+                    </h3>
+                    <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
+                    <select class="secondaryselector"> 
                     <option value="-- Select --">-- Select --</option>
                     <option value="ASSASSINATION">ASSASSINATION</option>
                     <option value="BRING IT DOWN">BRING IT DOWN</option>
@@ -72,7 +77,9 @@
                 <h3 class="sec"><span class="vpsecondary" id="leftsecondary1">
                     <a class="vpbutton vpup" onclick="apuva('L3 ylös')">&#9652</a> 
                     <a class="vpbutton vpdown"onclick="apuva('L3 alas')">&#9662</a><span style="margin-left:10px;">0/15</span></span>
-                    <select > 
+                    </h3>
+                    <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
+                    <select class="secondaryselector"> 
                     <option value="-- Select --">-- Select --</option>
                     <option value="ASSASSINATION">ASSASSINATION</option>
                     <option value="BRING IT DOWN">BRING IT DOWN</option>
@@ -105,9 +112,13 @@
             <h2 class="role wrap_right">Defender</h2>
             <h1 class="wrap_right"><span id="vpright"></span> VP <span id="cpright"></span> CP</h1>
             <h2 class="wrap_right">Secondary objectives</h2>
-            
             <h3 class="wrap_right sec">
-                <select class="wrap_right"> 
+            <span class="vpsecondary" id="rightsecondary1">0/15 
+                <a class="vpbutton vpup" onclick="increase(R1)">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="apuva('R1 alas')">&#9662</a></span>
+                </h3>
+            <h3 class="wrap_right sec">
+                <select class="secondaryselector wrap_right"> 
                     <option value="-- Select --">-- Select --</option>
                     <option value="ASSASSINATION">ASSASSINATION</option>
                     <option value="BRING IT DOWN">BRING IT DOWN</option>
@@ -122,11 +133,13 @@
                     <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
                     <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
                 </select>
-                <span class="vpsecondary" id="rightsecondary1">0/15 
-                <a class="vpbutton vpup" onclick="increase(R1)">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="apuva('R1 alas')">&#9662</a></span></h3>
+                </h3>
         <h3 class="wrap_right sec">
-            <select class="wrap_right"> 
+            <span class="vpsecondary" id="rightsecondary2">0/15 
+                <a class="vpbutton vpup" onclick="apuva('R2 ylös')">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="apuva('R2 alas')">&#9662</a></span></h3>
+        <h3 class="wrap_right sec">
+            <select class="secondaryselector wrap_right"> 
             <option value="-- Select --">-- Select --</option>
             <option value="ASSASSINATION">ASSASSINATION</option>
             <option value="BRING IT DOWN">BRING IT DOWN</option>
@@ -141,11 +154,12 @@
             <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
             <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>
         </select> 
-            <span class="vpsecondary" id="rightsecondary1">0/15 
-                <a class="vpbutton vpup" onclick="apuva('R2 ylös')">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="apuva('R2 alas')">&#9662</a></span></h3>
         <h3 class="wrap_right sec">
-            <select class="wrap_right"> 
+            <span class="vpsecondary" id="rightsecondary3">0/15 
+                <a class="vpbutton vpup" onclick="apuva('R3 ylös')">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="apuva('R3 alas')">&#9662</a></span></h3>
+                <h3 class="wrap_right sec">
+            <select class="secondaryselector wrap_right"> 
                 <option value="-- Select --">-- Select --</option>
                 <option value="ASSASSINATION">ASSASSINATION</option>
                 <option value="BRING IT DOWN">BRING IT DOWN</option>
@@ -160,10 +174,7 @@
                 <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
                 <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
             </select>
-            <span class="vpsecondary" id="rightsecondary1">0/15 
-                <a class="vpbutton vpup" onclick="apuva('R3 ylös')">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="apuva('R3 alas')">&#9662</a></span></h3>
-            
+        </h3>
         </div>
     </div>
     <script>
