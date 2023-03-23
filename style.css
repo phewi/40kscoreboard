@@ -80,10 +80,17 @@ span.vpsecondary {
 #cpright {
     margin-left: 75px;
 }
-
-containersecondaries h3{
-    float:left
+#secvp1left,#secvp2left,#secvp3left,#secvp1right, #secvp2right,#secvp3right,#primaryvpleft,#primaryvpright{
+    width: 32px;
+    text-align: right;
+    display: inline-block;
 }
+#totalvpleft,#totalvpright,#cpright,#cpleft{
+    width:75px;
+    text-align: right;
+    display: inline-block;
+}
+
 .textbox-right p{
     margin-top:0;
     text-align: right;

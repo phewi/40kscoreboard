@@ -11,22 +11,18 @@ var secvp1right = localStorage.getItem('secvp1right');
 var secvp2right = localStorage.getItem('secvp2right');
 var secvp3right = localStorage.getItem('secvp3right');
 
-
 function modcpleft(value){
     if(value>0){cpleft++;}
     else {if(cpleft>0)cpleft--};
     document.getElementById("cpleft").innerHTML = cpleft;
     localStorage.setItem('cpleft',cpleft)
 }
-
 function modcpright(value){
     if(value>0){cpright++;}
     else {if(cpright>0)cpright--};
     document.getElementById("cpright").innerHTML = cpright;
     localStorage.setItem('cpright',cpright)
 }
-
-
 function modtotalvpleft(value){
     if(value>0){totalvpleft++;}
     else {if(totalvpleft>0)totalvpleft--};
@@ -118,10 +114,6 @@ function letsago() {
     document.getElementById("secvp3right").innerHTML = secvp3right;
 }
 
-
-
-
-
 //DROPDOWNS BEGIN
 document.getElementById("factionright").onchange = function() {
     localStorage['factionright'] = document.getElementById("factionright").value;
@@ -157,67 +149,3 @@ window.onload= function(){
     document.getElementById("secondary2left").value = localStorage['secondary2left'];
     document.getElementById("secondary3left").value = localStorage['secondary3left'];
 }
-
-/*
-function setleftfaction() {
-    var optionValue = document.getElementById("factionleft").value;
-    //localStorage.setItem('factionleft',optionValue)
-    localStorage['factionleft'] = document.getElementById("factionleft").value;
-}
-function setrightfaction() {
-    var optionValue = document.getElementById("factionright").value;
-    localStorage.setItem('factionright',optionValue)
-}
-
-document.addEventListener('keydown', function(event) {
-    //Increase left VP
-    if (event.isComposing || event.keyCode === 87) {
-        totalvpleft++;
-        document.getElementById("vpleft").innerHTML = vpleft;
-        localStorage.setItem('vpleft',vpleft)
-        //increase("vpleft");
-    }
-        //Decrease left VP
-    if (event.isComposing || event.keyCode === 81) {
-        if(totalvpleft>0){totalvpleft--};
-        document.getElementById("vpleft").innerHTML = vpleft;
-        localStorage.setItem('vpleft',totalvpleft);
-        //decrease("vpleft");
-    }
-    //Increase left CP
-    if (event.isComposing || event.keyCode === 83) {
-        cpleft++;
-        document.getElementById("cpleft").innerHTML = cpleft;
-        localStorage.setItem('cpleft',cpleft);
-    }
-    //Decrease left CP
-    if (event.isComposing || event.keyCode === 65) {
-        if(cpleft>0){cpleft--};
-        document.getElementById("cpleft").innerHTML = cpleft;
-        localStorage.setItem('cpleft',cpleft);
-    }
-    //Increase right VP
-    if (event.isComposing || event.keyCode === 82) {
-        vpright++;
-        document.getElementById("vpright").innerHTML = vpright;
-        localStorage.setItem('vpright',vpright);
-    }
-    //Decrease right VP
-    if (event.isComposing || event.keyCode === 69) {
-        if(vpright>0){vpright--};
-        document.getElementById("vpright").innerHTML = vpright;
-        localStorage.setItem('vpright',vpright);
-    }
-    //Increase right CP
-    if (event.isComposing || event.keyCode === 70) {
-        cpright++;
-        document.getElementById("cpright").innerHTML = cpright;
-        localStorage.setItem('cpright',cpright);
-    }
-    //Decrease right CP
-    if (event.isComposing || event.keyCode === 68) {
-        if(cpright>0){cpright--};
-        document.getElementById("cpright").innerHTML = cpright;
-        localStorage.setItem('cpright',cpright);
-    }
-})*/
