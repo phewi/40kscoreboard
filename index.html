@@ -12,87 +12,136 @@
   <body onload="letsago()">
     <div id="containerprimary">
         <h3>MISSION</h3>
-        <p>Ascension</p>
+        <p><span id='outputL'></span></p>
+        <p><span id='outputR'></span></p>
     </div>
     <div id="containerleft">
         <div class="textbox textbox-left">
             <h1 class="faction">
-                <select >
-                    <option value="-- Select --">-- Select faction --</option>
-                    <option value="-- Select --">Astra Militarum</option>
-                    <option value="-- Select --">Death Guard</option>
-                    <option value="-- Select --">Necrons</option>
-                    <option value="-- Select --">Chaos Space Marines</option>
+                <select name="factionleft" id="factionleft" >
+                    <option value="-- Select faction--">-- Select faction --</option>
+                    <option value="Astra Militarum">Astra Militarum</option>
+                    <option value="Death Guard">Death Guard</option>
+                    <option value="Necrons">Necrons</option>
+                    <option value="Chaos Space Marines">Chaos Space Marines</option>
                 </select>  
             </h1>
             <h2 class="role">Attacker</h2>
-            <h1><span id="vpleft"></span> VP <span id="cpleft"></span> CP</h1>
-            
+            <div class="vpandcpcontainer">
+                <h1><span id="totalvpleft"></span> VP <span id="cpleft"></span> CP 
+                    <a class="vpbutton vpup" onclick="modcpleft(1)">&#9652</a> 
+                    <a class="vpbutton vpdown" onclick="modcpleft(-1)">&#9662</a></span></h1>
+                
+            </div>
+            <h2>Primary objective</h2>
+            <h3 class="sec">
+            <span class="vpsecondary" id="leftprimary"><span id="primaryvpleft"> </span> VP
+                <a class="vpbutton vpup" onclick="modprimaryvpleft(1)">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="modprimaryvpleft(-1)">&#9662</a></span>
+            </h3>
             <div id="containersecondaries">
                 <h2>Secondary objectives</h2>
 
-                <h3 class="sec"><span class="vpsecondary" id="leftsecondary1">
-                    <a class="vpbutton vpup" onclick="apuva('L1 ylös')">&#9652</a> 
-                    <a class="vpbutton vpdown" onclick="apuva('L1 alas')">&#9662</a><span style="margin-left:10px;">0/15</span></span>
+                <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
+                    <span style="margin-left:10px;"><span id="secvp1left"></span> / 15 VP</span>
+                    <a class="vpbutton vpup" onclick="modsecvp1left(1)">&#9652</a> 
+                    <a class="vpbutton vpdown" onclick="modsecvp1left(-1)">&#9662</a>
                     </h3>
                     <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
-                    <select class="secondaryselector"> 
+                <select id="secondary1left" class="secondaryselector"> 
                     <option value="-- Select --">-- Select --</option>
-                    <option value="ASSASSINATION">ASSASSINATION</option>
-                    <option value="BRING IT DOWN">BRING IT DOWN</option>
-                    <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
-                    <option value="NO PRISONERS">NO PRISONERS</option>
                     <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
-                    <option value="WARP RITUAL">WARP RITUAL</option>
-                    <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
-                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="ANCIENT MACHINERIES">ANCIENT MACHINERIES</option>
+                    <option value="ASSASSINATION">ASSASSINATION</option>
+                    <option value="AURIC MORTALIS">AURIC MORTALIS</option>
                     <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                    <option value="BOOTS ON THE GROUND">BOOTS ON THE GROUND</option>
+                    <option value="BRING IT DOWN">BRING IT DOWN</option>
+                    <option value="BY LASGUN AND BAYONET">BY LASGUN AND BAYONET</option>
+                    <option value="DESPOILED GROUND">DESPOILED GROUND</option>
                     <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                    <option value="EXALT THE DARK GODS">EXALT THE DARK GODS</option>
+                    <option value="FLEEING VECTORS">FLEEING VECTORS</option>
+                    <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+                    <option value="INFLEXIBLE COMMAND">INFLEXIBLE COMMAND</option>
+                    <option value="MIGHT OF TERRA">MIGHT OF TERRA</option>
+                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+                    <option value="PURGE THE VERMIN">PURGE THE VERMIN</option>
                     <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
-                    <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
+                    <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>
+                    <option value="SPREAD THE SICKNESS">SPREAD THE SICKNESS</option>
+                    <option value="STAND VIGIL">STAND VIGIL</option>
+                    <option value="THE TREASURES OF AEONS">THE TREASURES OF AEONS</option>
+                    <option value="WARP RITUAL">WARP RITUAL</option>      
                 </select>
                     </h3>
-                <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"> 
-                    <span style="margin-left:10px;">0/15</span>
-                    <a class="vpbutton vpup" onclick="apuva('L2ylös')">&#9652</a> 
-                    <a class="vpbutton vpdown"onclick="apuva('L2 alas')">&#9662</a></span>
+                <h3 class="sec"><span class="vpsecondary" id="leftsecondary2"></span>
+                    <span style="margin-left:10px;"><span id="secvp2left"></span> / 15 VP</span>
+                    <a class="vpbutton vpup" onclick="modsecvp2left(1)">&#9652</a> 
+                    <a class="vpbutton vpdown"onclick="modsecvp2left(-1)">&#9662</a>
                     </h3>
-                    <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
-                    <select class="secondaryselector"> 
-                    <option value="-- Select --">-- Select --</option>
-                    <option value="ASSASSINATION">ASSASSINATION</option>
-                    <option value="BRING IT DOWN">BRING IT DOWN</option>
-                    <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
-                    <option value="NO PRISONERS">NO PRISONERS</option>
-                    <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
-                    <option value="WARP RITUAL">WARP RITUAL</option>
-                    <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
-                    <option value="NO PRISONERS">NO PRISONERS</option>
-                    <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
-                    <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
-                    <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
-                    <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
+                    <h3 class="sec"><span class="vpsecondary" id="leftsecondary2"></span>
+                    <select id="secondary2left" class="secondaryselector"> 
+                        <option value="-- Select --">-- Select --</option>
+                        <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
+                        <option value="ANCIENT MACHINERIES">ANCIENT MACHINERIES</option>
+                        <option value="ASSASSINATION">ASSASSINATION</option>
+                        <option value="AURIC MORTALIS">AURIC MORTALIS</option>
+                        <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                        <option value="BOOTS ON THE GROUND">BOOTS ON THE GROUND</option>
+                        <option value="BRING IT DOWN">BRING IT DOWN</option>
+                        <option value="BY LASGUN AND BAYONET">BY LASGUN AND BAYONET</option>
+                        <option value="DESPOILED GROUND">DESPOILED GROUND</option>
+                        <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                        <option value="EXALT THE DARK GODS">EXALT THE DARK GODS</option>
+                        <option value="FLEEING VECTORS">FLEEING VECTORS</option>
+                        <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+                        <option value="INFLEXIBLE COMMAND">INFLEXIBLE COMMAND</option>
+                        <option value="MIGHT OF TERRA">MIGHT OF TERRA</option>
+                        <option value="NO PRISONERS">NO PRISONERS</option>
+                        <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+                        <option value="PURGE THE VERMIN">PURGE THE VERMIN</option>
+                        <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
+                        <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>
+                        <option value="SPREAD THE SICKNESS">SPREAD THE SICKNESS</option>
+                        <option value="STAND VIGIL">STAND VIGIL</option>
+                        <option value="THE TREASURES OF AEONS">THE TREASURES OF AEONS</option>
+                        <option value="WARP RITUAL">WARP RITUAL</option>       
                 </select>
                     </h3>
-                <h3 class="sec"><span class="vpsecondary" id="leftsecondary1">
-                    <a class="vpbutton vpup" onclick="apuva('L3 ylös')">&#9652</a> 
-                    <a class="vpbutton vpdown"onclick="apuva('L3 alas')">&#9662</a><span style="margin-left:10px;">0/15</span></span>
+                <h3 class="sec"><span class="vpsecondary" id="leftsecondary3"></span>
+                    <span style="margin-left:10px;"><span id="secvp3left"></span> / 15 VP</span>
+                    <a class="vpbutton vpup" onclick="modsecvp3left(1)">&#9652</a> 
+                    <a class="vpbutton vpdown"onclick="modsecvp3left(-1)">&#9662</a>
                     </h3>
-                    <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
-                    <select class="secondaryselector"> 
-                    <option value="-- Select --">-- Select --</option>
-                    <option value="ASSASSINATION">ASSASSINATION</option>
-                    <option value="BRING IT DOWN">BRING IT DOWN</option>
-                    <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
-                    <option value="NO PRISONERS">NO PRISONERS</option>
-                    <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
-                    <option value="WARP RITUAL">WARP RITUAL</option>
-                    <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
-                    <option value="NO PRISONERS">NO PRISONERS</option>
-                    <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
-                    <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
-                    <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
-                    <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
+                    <h3 class="sec"><span class="vpsecondary" id="leftsecondary3"></span>
+                    <select id="secondary3left" class="secondaryselector"> 
+                        <option value="-- Select --">-- Select --</option>
+                        <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
+                        <option value="ANCIENT MACHINERIES">ANCIENT MACHINERIES</option>
+                        <option value="ASSASSINATION">ASSASSINATION</option>
+                        <option value="AURIC MORTALIS">AURIC MORTALIS</option>
+                        <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                        <option value="BOOTS ON THE GROUND">BOOTS ON THE GROUND</option>
+                        <option value="BRING IT DOWN">BRING IT DOWN</option>
+                        <option value="BY LASGUN AND BAYONET">BY LASGUN AND BAYONET</option>
+                        <option value="DESPOILED GROUND">DESPOILED GROUND</option>
+                        <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                        <option value="EXALT THE DARK GODS">EXALT THE DARK GODS</option>
+                        <option value="FLEEING VECTORS">FLEEING VECTORS</option>
+                        <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+                        <option value="INFLEXIBLE COMMAND">INFLEXIBLE COMMAND</option>
+                        <option value="MIGHT OF TERRA">MIGHT OF TERRA</option>
+                        <option value="NO PRISONERS">NO PRISONERS</option>
+                        <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+                        <option value="PURGE THE VERMIN">PURGE THE VERMIN</option>
+                        <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
+                        <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>
+                        <option value="SPREAD THE SICKNESS">SPREAD THE SICKNESS</option>
+                        <option value="STAND VIGIL">STAND VIGIL</option>
+                        <option value="THE TREASURES OF AEONS">THE TREASURES OF AEONS</option>
+                        <option value="WARP RITUAL">WARP RITUAL</option>  
                 </select>
                     </h3>
             </div>
@@ -101,160 +150,156 @@
     <div id="containerright">
         <div class="textbox textbox-right">
             <h1 class="faction wrap_right">
-                <select class="wrap_right"> 
-                    <option value="-- Select --">-- Select faction --</option>
-                    <option value="-- Select --">Astra Militarum</option>
-                    <option value="-- Select --">Death Guard</option>
-                    <option value="-- Select --">Necrons</option>
-                    <option value="-- Select --">Chaos Space Marines</option>
+                    <select class="wrap_right" name="factionright" id="factionright">
+                        <option value="-- Select --">-- Select faction --</option>
+                        <option value="Astra Militarum">Astra Militarum</option>
+                        <option value="Death Guard">Death Guard</option>
+                        <option value="Necrons">Necrons</option>
+                        <option value="Chaos Space Marines">Chaos Space Marines</option>
                 </select>  
             </h1>
             <h2 class="role wrap_right">Defender</h2>
-            <h1 class="wrap_right"><span id="vpright"></span> VP <span id="cpright"></span> CP</h1>
+            <h1 class="wrap_right"><span id="totalvpright"></span> VP <span id="cpright" class="wrap_right"></span> CP
+                <a class="vpbutton vpup" onclick="modcpright(1)">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="modcpright(-1)">&#9662</a></span></h1>
+            <h2 class="wrap_right">Primary objective</h2>
+            <h3 class="wrap_right sec">
+            <span class="vpsecondary" id="rightprimary"><span id="primaryvpright"></span> VP 
+                <a class="vpbutton vpup" onclick="modprimaryvpright(1)">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="modprimaryvpright(-1)">&#9662</a></span>
+            </h3>
             <h2 class="wrap_right">Secondary objectives</h2>
             <h3 class="wrap_right sec">
-            <span class="vpsecondary" id="rightsecondary1">0/15 
-                <a class="vpbutton vpup" onclick="increase(R1)">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="apuva('R1 alas')">&#9662</a></span>
+            <span class="vpsecondary" id="rightsecondary1"><span id="secvp1right"></span> / 15 VP
+                <a class="vpbutton vpup" onclick="modsecvp1right(1)">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="modsecvp1right(-1)">&#9662</a></span>
                 </h3>
             <h3 class="wrap_right sec">
-                <select class="secondaryselector wrap_right"> 
+                <select id="secondary1right" class="secondaryselector wrap_right"> 
                     <option value="-- Select --">-- Select --</option>
-                    <option value="ASSASSINATION">ASSASSINATION</option>
-                    <option value="BRING IT DOWN">BRING IT DOWN</option>
-                    <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
-                    <option value="NO PRISONERS">NO PRISONERS</option>
                     <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
-                    <option value="WARP RITUAL">WARP RITUAL</option>
-                    <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
-                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="ANCIENT MACHINERIES">ANCIENT MACHINERIES</option>
+                    <option value="ASSASSINATION">ASSASSINATION</option>
+                    <option value="AURIC MORTALIS">AURIC MORTALIS</option>
                     <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                    <option value="BOOTS ON THE GROUND">BOOTS ON THE GROUND</option>
+                    <option value="BRING IT DOWN">BRING IT DOWN</option>
+                    <option value="BY LASGUN AND BAYONET">BY LASGUN AND BAYONET</option>
+                    <option value="DESPOILED GROUND">DESPOILED GROUND</option>
                     <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                    <option value="EXALT THE DARK GODS">EXALT THE DARK GODS</option>
+                    <option value="FLEEING VECTORS">FLEEING VECTORS</option>
+                    <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+                    <option value="INFLEXIBLE COMMAND">INFLEXIBLE COMMAND</option>
+                    <option value="MIGHT OF TERRA">MIGHT OF TERRA</option>
+                    <option value="NO PRISONERS">NO PRISONERS</option>
+                    <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+                    <option value="PURGE THE VERMIN">PURGE THE VERMIN</option>
                     <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
-                    <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
+                    <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>
+                    <option value="SPREAD THE SICKNESS">SPREAD THE SICKNESS</option>
+                    <option value="STAND VIGIL">STAND VIGIL</option>
+                    <option value="THE TREASURES OF AEONS">THE TREASURES OF AEONS</option>
+                    <option value="WARP RITUAL">WARP RITUAL</option>     
                 </select>
                 </h3>
         <h3 class="wrap_right sec">
-            <span class="vpsecondary" id="rightsecondary2">0/15 
-                <a class="vpbutton vpup" onclick="apuva('R2 ylös')">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="apuva('R2 alas')">&#9662</a></span></h3>
+            <span class="vpsecondary" id="rightsecondary2"><span id="secvp2right"></span> / 15 VP
+                <a class="vpbutton vpup" onclick="modsecvp2right(1)">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="modsecvp2right(-1)">&#9662</a></span></h3>
         <h3 class="wrap_right sec">
-            <select class="secondaryselector wrap_right"> 
-            <option value="-- Select --">-- Select --</option>
-            <option value="ASSASSINATION">ASSASSINATION</option>
-            <option value="BRING IT DOWN">BRING IT DOWN</option>
-            <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
-            <option value="NO PRISONERS">NO PRISONERS</option>
-            <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
-            <option value="WARP RITUAL">WARP RITUAL</option>
-            <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
-            <option value="NO PRISONERS">NO PRISONERS</option>
-            <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
-            <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
-            <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
-            <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>
+            <select id="secondary2right" class="secondaryselector wrap_right"> 
+                <option value="-- Select --">-- Select --</option>
+                <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
+                <option value="ANCIENT MACHINERIES">ANCIENT MACHINERIES</option>
+                <option value="ASSASSINATION">ASSASSINATION</option>
+                <option value="AURIC MORTALIS">AURIC MORTALIS</option>
+                <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                <option value="BOOTS ON THE GROUND">BOOTS ON THE GROUND</option>
+                <option value="BRING IT DOWN">BRING IT DOWN</option>
+                <option value="BY LASGUN AND BAYONET">BY LASGUN AND BAYONET</option>
+                <option value="DESPOILED GROUND">DESPOILED GROUND</option>
+                <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                <option value="EXALT THE DARK GODS">EXALT THE DARK GODS</option>
+                <option value="FLEEING VECTORS">FLEEING VECTORS</option>
+                <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+                <option value="INFLEXIBLE COMMAND">INFLEXIBLE COMMAND</option>
+                <option value="MIGHT OF TERRA">MIGHT OF TERRA</option>
+                <option value="NO PRISONERS">NO PRISONERS</option>
+                <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+                <option value="PURGE THE VERMIN">PURGE THE VERMIN</option>
+                <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
+                <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>
+                <option value="SPREAD THE SICKNESS">SPREAD THE SICKNESS</option>
+                <option value="STAND VIGIL">STAND VIGIL</option>
+                <option value="THE TREASURES OF AEONS">THE TREASURES OF AEONS</option>
+                <option value="WARP RITUAL">WARP RITUAL</option>
         </select> 
         <h3 class="wrap_right sec">
-            <span class="vpsecondary" id="rightsecondary3">0/15 
-                <a class="vpbutton vpup" onclick="apuva('R3 ylös')">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="apuva('R3 alas')">&#9662</a></span></h3>
+            <span class="vpsecondary" id="rightsecondary3"><span id="secvp3right"></span> / 15 VP
+                <a class="vpbutton vpup" onclick="modsecvp3right(1)">&#9652</a> 
+                <a class="vpbutton vpdown" onclick="modsecvp3right(-1)">&#9662</a></span></h3>
                 <h3 class="wrap_right sec">
-            <select class="secondaryselector wrap_right"> 
+            <select id="secondary3right" class="secondaryselector wrap_right"> 
                 <option value="-- Select --">-- Select --</option>
-                <option value="ASSASSINATION">ASSASSINATION</option>
-                <option value="BRING IT DOWN">BRING IT DOWN</option>
-                <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
-                <option value="NO PRISONERS">NO PRISONERS</option>
                 <option value="ABHOR THE WITCH">ABHOR THE WITCH</option>
-                <option value="WARP RITUAL">WARP RITUAL</option>
-                <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
-                <option value="NO PRISONERS">NO PRISONERS</option>
+                <option value="ANCIENT MACHINERIES">ANCIENT MACHINERIES</option>
+                <option value="ASSASSINATION">ASSASSINATION</option>
+                <option value="AURIC MORTALIS">AURIC MORTALIS</option>
                 <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                <option value="BOOTS ON THE GROUND">BOOTS ON THE GROUND</option>
+                <option value="BRING IT DOWN">BRING IT DOWN</option>
+                <option value="BY LASGUN AND BAYONET">BY LASGUN AND BAYONET</option>
+                <option value="DESPOILED GROUND">DESPOILED GROUND</option>
                 <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                <option value="EXALT THE DARK GODS">EXALT THE DARK GODS</option>
+                <option value="FLEEING VECTORS">FLEEING VECTORS</option>
+                <option value="GRIND THEM DOWN">GRIND THEM DOWN</option>
+                <option value="INFLEXIBLE COMMAND">INFLEXIBLE COMMAND</option>
+                <option value="MIGHT OF TERRA">MIGHT OF TERRA</option>
+                <option value="NO PRISONERS">NO PRISONERS</option>
+                <option value="PSYCHIC INTERROGATION">PSYCHIC INTERROGATION</option>
+                <option value="PURGE THE VERMIN">PURGE THE VERMIN</option>
                 <option value="RAISE THE BANNERS HIGH">RAISE THE BANNERS HIGH</option>
-                <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>            
+                <option value="RETRIEVE BATTLEFIELD DATA">RETRIEVE BATTLEFIELD DATA</option>
+                <option value="SPREAD THE SICKNESS">SPREAD THE SICKNESS</option>
+                <option value="STAND VIGIL">STAND VIGIL</option>
+                <option value="THE TREASURES OF AEONS">THE TREASURES OF AEONS</option>
+                <option value="WARP RITUAL">WARP RITUAL</option>
             </select>
+            
         </h3>
         </div>
     </div>
+    
+    <script src="40k.js"></script>
     <script>
-        var vpleft = localStorage.getItem('vpleft');
-        var vpright = localStorage.getItem('vpright');
-        var cpleft = localStorage.getItem('cpleft');
-        var cpright = localStorage.getItem('cpright');
         
-        function apuva(kek){
-            console.log(kek)
-        }
-        function letsago() {
-            document.getElementById("vpleft").innerHTML = vpleft;
-            document.getElementById("vpright").innerHTML = vpright;
-            document.getElementById("cpleft").innerHTML = cpleft;
-            document.getElementById("cpright").innerHTML = cpright;
-        }
+        cpright = localStorage.getItem('cpright');
+        cpleft = localStorage.getItem('cpleft');
+        totalvpleft = localStorage.getItem('totalvpleft');
+        totalvpright = localStorage.getItem('totalvpright');
+        secvp1left = localStorage.getItem('secvp1left');
+        secvp2left = localStorage.getItem('secvp2left');
+        secvp3left = localStorage.getItem('secvp3left');
+        secvp1right = localStorage.getItem('secvp1right');
+        secvp2right = localStorage.getItem('secvp2right');
+        secvp3right = localStorage.getItem('secvp3right');
+        primaryvpleft = localStorage.getItem('primaryvpleft');
+        primaryvpright = localStorage.getItem('primaryvpright');
+        document.getElementById("cpright").innerHTML = cpright;
+        document.getElementById("cpleft").innerHTML = cpleft;
+        document.getElementById("totalvpleft").innerHTML = totalvpleft;
+        document.getElementById("totalvpright").innerHTML = totalvpright;
+        document.getElementById("secvp1left").innerHTML = secvp1left;
+        document.getElementById("secvp2left").innerHTML = secvp2left;
+        document.getElementById("secvp3left").innerHTML = secvp3left;
+        document.getElementById("secvp1right").innerHTML = secvp1right;
+        document.getElementById("secvp2right").innerHTML = secvp2right;
+        document.getElementById("secvp3right").innerHTML = secvp3right;
+        document.getElementById("primaryvpleft").innerHTML = primaryvpleft;
+        document.getElementById("primaryvpright").innerHTML = primaryvpright;
         
-        function increase(item){
-            value++
-            console.log(value);
-            document.getElementById(toString(item)).innerHTML = value;
-            localStorage.setItem(item,value)   
-            return value; 
-            }
-     
-                    
-        document.addEventListener('keydown', function(event) {
-            //Increase left VP
-            if (event.isComposing || event.keyCode === 87) {
-                vpleft++
-                document.getElementById("vpleft").innerHTML = vpleft;
-                localStorage.setItem('vpleft',vpleft)
-                //increase("vpleft");
-                
-            }
-             //Decrease left VP
-            if (event.isComposing || event.keyCode === 81) {
-                if(vpleft>0){vpleft--}
-                document.getElementById("vpleft").innerHTML = vpleft;
-                localStorage.setItem('vpleft',vpleft);
-                //decrease("vpleft");
-            }
-            //Increase left CP
-            if (event.isComposing || event.keyCode === 83) {
-                cpleft++
-                document.getElementById("cpleft").innerHTML = cpleft;
-                localStorage.setItem('cpleft',cpleft);
-            }
-            //Decrease left CP
-            if (event.isComposing || event.keyCode === 65) {
-                if(cpleft>0){cpleft--}
-                document.getElementById("cpleft").innerHTML = cpleft;
-                localStorage.setItem('cpleft',cpleft);
-            }
-            //Increase right VP
-            if (event.isComposing || event.keyCode === 82) {
-                vpright++
-                document.getElementById("vpright").innerHTML = vpright;
-                localStorage.setItem('vpright',vpright);
-            }
-            //Decrease right VP
-            if (event.isComposing || event.keyCode === 69) {
-                if(vpright>0){vpright--}
-                document.getElementById("vpright").innerHTML = vpright;
-                localStorage.setItem('vpright',vpright);
-            }
-            //Increase right CP
-            if (event.isComposing || event.keyCode === 70) {
-                cpright++
-                document.getElementById("cpright").innerHTML = cpright;
-                localStorage.setItem('cpright',cpright);
-            }
-            //Decrease right CP
-            if (event.isComposing || event.keyCode === 68) {
-                if(cpright>0){cpright--}
-                document.getElementById("cpright").innerHTML = cpright;
-                localStorage.setItem('cpright',cpright);
-            }
-        })
-      </script>
+    </script>
   </body>
 </html>

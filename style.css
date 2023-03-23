@@ -8,7 +8,7 @@ body{
     background-color: black;
     color: white;
     font-family: Modesto,serif;
-    background-image: url("images/ig_dg.jpg");
+    /*background-image: url("images/ig_dg.jpg");*/
     background-repeat:no-repeat;
     background-size: cover;
     background-position: center top;
@@ -72,8 +72,15 @@ select option{
     opacity: 80%;
 }
 span.vpsecondary {
-    margin: 0 0.5em;
+    /*margin: 0 0.5em;*/
 }
+#cpleft {
+    margin-left: 75px;
+}
+#cpright {
+    margin-left: 75px;
+}
+
 containersecondaries h3{
     float:left
 }
