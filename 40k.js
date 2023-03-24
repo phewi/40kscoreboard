@@ -115,11 +115,16 @@ function letsago() {
 }
 
 //DROPDOWNS BEGIN
-document.getElementById("factionright").onchange = function() {
-    localStorage['factionright'] = document.getElementById("factionright").value;
+document.getElementById("mission").onchange = function() {
+    localStorage['mission'] = document.getElementById("mission").value;
 }
 document.getElementById("factionleft").onchange = function() {
     localStorage['factionleft'] = document.getElementById("factionleft").value;
+    //TODO change background here
+}
+document.getElementById("factionright").onchange = function() {
+    localStorage['factionright'] = document.getElementById("factionright").value;
+    //TODO change background here, mirror the left image
 }
 document.getElementById("secondary1right").onchange = function() {
     localStorage['secondary1right'] = document.getElementById("secondary1right").value;
@@ -140,6 +145,7 @@ document.getElementById("secondary3left").onchange = function() {
     localStorage['secondary3left'] = document.getElementById("secondary3left").value;
 }
 window.onload= function(){
+    document.getElementById("mission").value = localStorage['mission'];
     document.getElementById("factionleft").value = localStorage['factionleft'];
     document.getElementById("factionright").value = localStorage['factionright'];
     document.getElementById("secondary1right").value = localStorage['secondary1right'];

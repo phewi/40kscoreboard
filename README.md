@@ -13,7 +13,7 @@ Use background image opacity 50% to see the text better
 - [ ] Reset button
 - [x] ~~Select Factions from a list~~
   - [ ] Change background when a faction is selected
-- [ ] Select primary objectives from a list
+- [x] ~~Select primary objectives from a list~~
   - [ ] Add primary objective descriptions (mouseover or infobutton maybe)
 - [x] ~~Select secondary objectives from a list~~
   - [ ] Add secondary objective descriptions (mouseover or infobutton maybe)

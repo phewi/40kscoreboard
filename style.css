@@ -8,7 +8,6 @@ body{
     background-color: black;
     color: white;
     font-family: Modesto,serif;
-    /*background-image: url("images/ig_dg.jpg");*/
     background-repeat:no-repeat;
     background-size: cover;
     background-position: center top;
@@ -63,7 +62,7 @@ select option{
     text-align: center;
     
     margin:0 auto;
-    width:20%;
+    width:456px;
     bottom:0;
     background-color: Black;
     position: absolute;
@@ -101,11 +100,11 @@ a.vpup:hover{
 a.vpup:active{
         color: limegreen;
         }
-a.vpudown:hover{
-color: lightpink;
+a.vpdown:hover{
+color: pink;
 }
 a.vpdown:active{
-    color: red;
+    color: darkred;
     }
 .textbox{
     height:100%
@@ -121,7 +120,8 @@ a.vpdown:active{
     height:100%;
     width: 50%;
     float: left; 
-    /*background-image: url("dg2.jpg");*/
+    background-image: url("images/bg_custodes.jpg");
+    background-size: cover;
     background-repeat:no-repeat;
     background-position: left top;
 }
@@ -129,7 +129,8 @@ a.vpdown:active{
     height:100%;
     width: 50%;
     float: right; 
-    /*background-image: url("ig.jpg");*/
+    background-image: url("images/bg_ig.jpg");
+    background-size: cover;
     background-repeat:no-repeat;
     background-position: right top;
 }
@@ -153,4 +154,7 @@ h3.sec{
 }
 select.secondaryselector{
     margin-bottom:1em
+}
+#mission{
+    text-align: center;
 }
