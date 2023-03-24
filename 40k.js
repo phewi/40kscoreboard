@@ -121,10 +121,53 @@ document.getElementById("mission").onchange = function() {
 document.getElementById("factionleft").onchange = function() {
     localStorage['factionleft'] = document.getElementById("factionleft").value;
     //TODO change background here
-}
+    var e = document.getElementById("factionleft");
+    var value = e.value;
+    var text = e.options[e.selectedIndex].text;
+    const element = document.querySelector('#containerleft');
+        if (text=="Adeptus Custodes"){
+            element.style.backgroundImage = "url('images/bg_custodes.jpg')";
+        }
+        else if (text=="Astra Militarum"){
+            element.style.backgroundImage = "url('images/bg_ig.jpg')";
+        }
+        else if (text=="Chaos Daemons"){
+            element.style.backgroundImage = "url('images/bg_dae.jpg')";
+        }
+        else if (text=="Chaos Space Marines"){
+            element.style.backgroundImage = "url('images/bg_csm.jpg')";
+        }
+        if (text=="Death Guard"){
+            element.style.backgroundImage = "url('images/bg_dg.jpg')";
+        }
+        else if (text=="Necrons"){
+            element.style.backgroundImage = "url('images/bg_nec.jpg')";
+        }
+    }
 document.getElementById("factionright").onchange = function() {
     localStorage['factionright'] = document.getElementById("factionright").value;
-    //TODO change background here, mirror the left image
+    var e = document.getElementById("factionright");
+    var value = e.value;
+    var text = e.options[e.selectedIndex].text;
+    const element = document.querySelector('#containerright');
+        if (text=="Adeptus Custodes"){
+            element.style.backgroundImage = "url('images/bg_custodes_r.jpg')";
+        }
+        else if (text=="Astra Militarum"){
+            element.style.backgroundImage = "url('images/bg_ig_r.jpg')";
+        }
+        else if (text=="Chaos Daemons"){
+                element.style.backgroundImage = "url('images/bg_dae_r.jpg')";
+        }
+        else if (text=="Chaos Space Marines"){
+            element.style.backgroundImage = "url('images/bg_csm_r.jpg')";
+        }
+        if (text=="Death Guard"){
+            element.style.backgroundImage = "url('images/bg_dg_r.jpg')";
+        }
+        else if (text=="Necrons"){
+            element.style.backgroundImage = "url('images/bg_nec_r.jpg')";
+        }
 }
 document.getElementById("secondary1right").onchange = function() {
     localStorage['secondary1right'] = document.getElementById("secondary1right").value;

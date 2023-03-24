@@ -120,7 +120,7 @@ a.vpdown:active{
     height:100%;
     width: 50%;
     float: left; 
-    background-image: url("images/bg_custodes.jpg");
+    /*background-image: url("images/bg_custodes.jpg");*/
     background-size: cover;
     background-repeat:no-repeat;
     background-position: left top;
@@ -129,12 +129,25 @@ a.vpdown:active{
     height:100%;
     width: 50%;
     float: right; 
-    background-image: url("images/bg_ig.jpg");
+    /*background-image: url("images/bg_ig.jpg");*/
     background-size: cover;
     background-repeat:no-repeat;
-    background-position: right top;
+    background-position: right top; 
+    
+
 }
-.wrap_right{text-align:right}
+
+
+
+
+.wrap_right{
+    text-align:right;
+
+}
+
+.mirrored {
+
+  }
 
 .faction{
     margin: 0;
