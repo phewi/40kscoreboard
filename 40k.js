@@ -38,24 +38,27 @@ function modprimaryvpleft(value){
     localStorage.setItem('primaryvpleft',primaryvpleft)
 }
 function modsecvp1left(value){
-    if(value>0){secvp1left++;
-        modtotalvpleft(1)}
+    if(value>0){if(secvp1left<=14){secvp1left++;
+            modtotalvpleft(1)} 
+    }
     else {if(secvp1left>0){secvp1left--;
         modtotalvpleft(-1)}};
     document.getElementById("secvp1left").innerHTML = secvp1left;
     localStorage.setItem('secvp1left',secvp1left)
 }
 function modsecvp2left(value){
-    if(value>0){secvp2left++;
-        modtotalvpleft(1)}
+    if(value>0){if(secvp2left<=14){secvp2left++;
+        modtotalvpleft(1)} 
+}
     else {if(secvp2left>0){secvp2left--;
         modtotalvpleft(-1)}};
     document.getElementById("secvp2left").innerHTML = secvp2left;
     localStorage.setItem('secvp2left',secvp2left)
 }
 function modsecvp3left(value){
-    if(value>0){secvp3left++;
-        modtotalvpleft(1)}
+    if(value>0){if(secvp3left<=14){secvp3left++;
+        modtotalvpleft(1)} 
+}
     else {if(secvp3left>0){secvp3left--;
         modtotalvpleft(-1)}};
     document.getElementById("secvp3left").innerHTML = secvp3left;
@@ -76,24 +79,27 @@ function modprimaryvpright(value){
     localStorage.setItem('primaryvpright',primaryvpright)
 }
 function modsecvp1right(value){
-    if(value>0){secvp1right++;
-        modtotalvpright(1)}
+    if(value>0){if(secvp1right<=14){secvp1right++;
+        modtotalvpright(1)} 
+}
     else {if(secvp1right>0){secvp1right--;
         modtotalvpright(-1)}};
     document.getElementById("secvp1right").innerHTML = secvp1right;
     localStorage.setItem('secvp1right',secvp1right)
 }
 function modsecvp2right(value){
-    if(value>0){secvp2right++;
-        modtotalvpright(1)}
+    if(value>0){if(secvp2right<=14){secvp2right++;
+        modtotalvpright(1)} 
+}
     else {if(secvp2right>0){secvp2right--;
         modtotalvpright(-1)}};
     document.getElementById("secvp2right").innerHTML = secvp2right;
     localStorage.setItem('secvp2right',secvp2right)
 }
 function modsecvp3right(value){
-    if(value>0){secvp3right++;
-        modtotalvpright(1)}
+    if(value>0){if(secvp3right<=14){secvp3right++;
+        modtotalvpright(1)} 
+}
     else {if(secvp3right>0){secvp3right--;
         modtotalvpright(-1)}};
     document.getElementById("secvp3right").innerHTML = secvp3right;
