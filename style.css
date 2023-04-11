@@ -11,7 +11,7 @@ body{
     background-repeat:no-repeat;
     background-size: cover;
     background-position: center top;
-    
+    margin:0;
 
     user-select: none;
     -moz-user-select: none;
@@ -62,7 +62,7 @@ select option{
     text-align: center;
     
     margin:0 auto;
-    width:456px;
+    width:481px;
     bottom:0;
     background-color: Black;
     position: absolute;
