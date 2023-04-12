@@ -41,8 +41,8 @@ select{
     font-size: 1em;
     text-transform: uppercase;
 
-        -moz-appearance: none;
-        -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 
       
 }

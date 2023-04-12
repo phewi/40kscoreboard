@@ -124,9 +124,10 @@ function letsago() {
 document.getElementById("mission").onchange = function() {
     localStorage['mission'] = document.getElementById("mission").value;
 }
+
+//Change background begin
 document.getElementById("factionleft").onchange = function() {
     localStorage['factionleft'] = document.getElementById("factionleft").value;
-    //TODO change background here
     var e = document.getElementById("factionleft");
     var value = e.value;
     var text = e.options[e.selectedIndex].text;
@@ -143,7 +144,7 @@ document.getElementById("factionleft").onchange = function() {
         else if (text=="Chaos Space Marines"){
             element.style.backgroundImage = "url('images/bg_csm.jpg')";
         }
-        if (text=="Death Guard"){
+        else if (text=="Death Guard"){
             element.style.backgroundImage = "url('images/bg_dg.jpg')";
         }
         else if (text=="Necrons"){
@@ -163,18 +164,20 @@ document.getElementById("factionright").onchange = function() {
             element.style.backgroundImage = "url('images/bg_ig_r.jpg')";
         }
         else if (text=="Chaos Daemons"){
-                element.style.backgroundImage = "url('images/bg_dae_r.jpg')";
+            element.style.backgroundImage = "url('images/bg_dae_r.jpg')";
         }
         else if (text=="Chaos Space Marines"){
             element.style.backgroundImage = "url('images/bg_csm_r.jpg')";
         }
-        if (text=="Death Guard"){
+        else if (text=="Death Guard"){
             element.style.backgroundImage = "url('images/bg_dg_r.jpg')";
         }
         else if (text=="Necrons"){
             element.style.backgroundImage = "url('images/bg_nec_r.jpg')";
         }
 }
+//Change background end
+
 document.getElementById("secondary1right").onchange = function() {
     localStorage['secondary1right'] = document.getElementById("secondary1right").value;
 }
@@ -193,14 +196,130 @@ document.getElementById("secondary2left").onchange = function() {
 document.getElementById("secondary3left").onchange = function() {
     localStorage['secondary3left'] = document.getElementById("secondary3left").value;
 }
-window.onload= function(){
+
+window.onload = function(){
+
+    //load dropdowns and set them to default if not in local storage
+    if(!localStorage['mission']){
+        localStorage.setItem('mission','-- Select mission--');}
+    if(!localStorage['factionleft']){
+        localStorage.setItem('factionleft','-- Select faction--');}
+    if(!localStorage['factionright']){
+        localStorage.setItem('factionright','-- Select faction--');}
+    if(!localStorage['secondary1right']){
+        localStorage.setItem('secondary1right','-- Select --');}
+    if(!localStorage['secondary2right']){
+        localStorage.setItem('secondary2right','-- Select --');}
+    if(!localStorage['secondary1right']){
+        localStorage.setItem('secondary1right','-- Select --');}
+    if(!localStorage['secondary2right']){
+        localStorage.setItem('secondary2right','-- Select --');}
+    if(!localStorage['secondary3right']){
+        localStorage.setItem('secondary3right','-- Select --');}            
+    if(!localStorage['secondary1left']){
+        localStorage.setItem('secondary1left','-- Select --');}
+    if(!localStorage['secondary2left']){
+        localStorage.setItem('secondary2left','-- Select --');}
+    if(!localStorage['secondary3left']){
+        localStorage.setItem('secondary3left','-- Select --');}   
+    
     document.getElementById("mission").value = localStorage['mission'];
-    document.getElementById("factionleft").value = localStorage['factionleft'];
     document.getElementById("factionright").value = localStorage['factionright'];
+    document.getElementById("factionleft").value = localStorage['factionleft'];
     document.getElementById("secondary1right").value = localStorage['secondary1right'];
     document.getElementById("secondary2right").value = localStorage['secondary2right'];
     document.getElementById("secondary3right").value = localStorage['secondary3right'];
     document.getElementById("secondary1left").value = localStorage['secondary1left'];
     document.getElementById("secondary2left").value = localStorage['secondary2left'];
     document.getElementById("secondary3left").value = localStorage['secondary3left'];
-}
+
+
+    //load cp and vp values and set them to default if not in local storage
+    
+    if(!localStorage['cpright']){localStorage.setItem('cpright',0);}
+    if(!localStorage['cpleft']){localStorage.setItem('cpleft',0);}
+    if(!localStorage['totalvpleft']){localStorage.setItem('totalvpleft',0);}
+    if(!localStorage['totalvpright']){localStorage.setItem('totalvpright',0);}
+    if(!localStorage['secvp1left']){localStorage.setItem('secvp1left',0);}
+    if(!localStorage['secvp2left']){localStorage.setItem('secvp2left',0);}
+    if(!localStorage['secvp3left']){localStorage.setItem('secvp3left',0);}
+    if(!localStorage['secvp1right']){localStorage.setItem('secvp1right',0);}
+    if(!localStorage['secvp2right']){localStorage.setItem('secvp2right',0);}
+    if(!localStorage['secvp3right']){localStorage.setItem('secvp3right',0);}
+    if(!localStorage['primaryvpleft']){localStorage.setItem('primaryvpleft',0);}
+    if(!localStorage['primaryvpright']){localStorage.setItem('primaryvpright',0);}
+    
+
+
+    document.getElementById("cpright").innerHTML = localStorage['cpright'];
+    document.getElementById("cpleft").innerHTML = localStorage['cpleft'];
+    document.getElementById("totalvpleft").innerHTML = localStorage['totalvpleft'];
+    document.getElementById("totalvpright").innerHTML = localStorage['totalvpright'];
+    document.getElementById("secvp1left").innerHTML = localStorage['secvp1left'];
+    document.getElementById("secvp2left").innerHTML = localStorage['secvp2left'];
+    document.getElementById("secvp3left").innerHTML = localStorage['secvp3left'];
+    document.getElementById("secvp1right").innerHTML = localStorage['secvp1right'];
+    document.getElementById("secvp2right").innerHTML = localStorage['secvp2right'];
+    document.getElementById("secvp3right").innerHTML = localStorage['secvp3right'];
+    document.getElementById("primaryvpleft").innerHTML = localStorage['primaryvpleft'];
+    document.getElementById("primaryvpright").innerHTML = localStorage['primaryvpright'];
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    localStorage['factionleft'] = document.getElementById("factionleft").value;
+    var le = document.getElementById("factionleft");
+    var text = le.options[le.selectedIndex].text;
+    const lelement = document.querySelector('#containerleft');
+        if (text=="Adeptus Custodes"){
+            lelement.style.backgroundImage = "url('images/bg_custodes.jpg')";
+        }
+        else if (text=="Astra Militarum"){
+            lelement.style.backgroundImage = "url('images/bg_ig.jpg')";
+        }
+        else if (text=="Chaos Daemons"){
+            lelement.style.backgroundImage = "url('images/bg_dae.jpg')";
+        }
+        else if (text=="Chaos Space Marines"){
+            lelement.style.backgroundImage = "url('images/bg_csm.jpg')";
+        }
+        else if (text=="Death Guard"){
+            lelement.style.backgroundImage = "url('images/bg_dg.jpg')";
+        }
+        else if (text=="Necrons"){
+            lelement.style.backgroundImage = "url('images/bg_nec.jpg')";
+        }
+    
+        localStorage['factionright'] = document.getElementById("factionright").value;
+        var re = document.getElementById("factionright");
+        var text = re.options[re.selectedIndex].text;
+        const relement = document.querySelector('#containerright');
+            if (text=="Adeptus Custodes"){
+                relement.style.backgroundImage = "url('images/bg_custodes_r.jpg')";
+            }
+            else if (text=="Astra Militarum"){
+                relement.style.backgroundImage = "url('images/bg_ig_r.jpg')";
+            }
+            else if (text=="Chaos Daemons"){
+                relement.style.backgroundImage = "url('images/bg_dae_r.jpg')";
+            }
+            else if (text=="Chaos Space Marines"){
+                relement.style.backgroundImage = "url('images/bg_csm_r.jpg')";
+            }
+            else if (text=="Death Guard"){
+                relement.style.backgroundImage = "url('images/bg_dg_r.jpg')";
+            }
+            else if (text=="Necrons"){
+                relement.style.backgroundImage = "url('images/bg_nec_r.jpg')";
+            }
+
+        }
