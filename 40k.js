@@ -141,6 +141,9 @@ document.getElementById("factionleft").onchange = function() {
         else if (text=="Chaos Daemons"){
             element.style.backgroundImage = "url('images/bg_dae.jpg')";
         }
+        else if (text=="Chaos Knights"){
+            element.style.backgroundImage = "url('images/bg_chaosknights.jpg')";
+        }
         else if (text=="Chaos Space Marines"){
             element.style.backgroundImage = "url('images/bg_csm.jpg')";
         }
@@ -149,6 +152,9 @@ document.getElementById("factionleft").onchange = function() {
         }
         else if (text=="Necrons"){
             element.style.backgroundImage = "url('images/bg_nec.jpg')";
+        }
+        else if (text=="-- Select faction --"){
+            element.style.backgroundImage = "none";
         }
     }
 document.getElementById("factionright").onchange = function() {
@@ -166,6 +172,9 @@ document.getElementById("factionright").onchange = function() {
         else if (text=="Chaos Daemons"){
             element.style.backgroundImage = "url('images/bg_dae_r.jpg')";
         }
+        else if (text=="Chaos Knights"){
+            element.style.backgroundImage = "url('images/bg_chaosknights_r.jpg')";
+        }
         else if (text=="Chaos Space Marines"){
             element.style.backgroundImage = "url('images/bg_csm_r.jpg')";
         }
@@ -174,6 +183,9 @@ document.getElementById("factionright").onchange = function() {
         }
         else if (text=="Necrons"){
             element.style.backgroundImage = "url('images/bg_nec_r.jpg')";
+        }
+        else if (text=="-- Select faction --"){
+            element.style.backgroundImage = "none";
         }
 }
 //Change background end
@@ -289,6 +301,9 @@ window.onload = function(){
         else if (text=="Chaos Daemons"){
             lelement.style.backgroundImage = "url('images/bg_dae.jpg')";
         }
+        else if (text=="Chaos Knights"){
+            lelement.style.backgroundImage = "url('images/bg_chaosknights.jpg')";
+        }
         else if (text=="Chaos Space Marines"){
             lelement.style.backgroundImage = "url('images/bg_csm.jpg')";
         }
@@ -311,6 +326,9 @@ window.onload = function(){
             }
             else if (text=="Chaos Daemons"){
                 relement.style.backgroundImage = "url('images/bg_dae_r.jpg')";
+            }
+            else if (text=="Chaos Knights"){
+                relement.style.backgroundImage = "url('images/bg_chaosknights_r.jpg')";
             }
             else if (text=="Chaos Space Marines"){
                 relement.style.backgroundImage = "url('images/bg_csm_r.jpg')";
