@@ -33,6 +33,10 @@ p {
 }
 .vpbutton{
 }
+span#currentphase{
+    width: 285px;
+    display: inline-block;
+}
 select{
     background:none;
     color:white;
@@ -55,7 +59,24 @@ select option{
 .vpbutton:active{
     color:black;
 }
+#containerround h3 {
+    line-height: 1em;
+}
+#containerround{
+    /*position:absolute;*/
+    text-align: center;
+    
+    margin:0 auto;
+    width:481px;
+    bottom:0;
+    background-color: Black;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 80%;
+}
 #containerprimary{
+    display: none;
     /*position:absolute;*/
     text-align: center;
     

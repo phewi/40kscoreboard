@@ -10,6 +10,11 @@
     <title>40k Scoreboard</title>
   </head>
   <body onload="letsago()">
+    <div id="containerround">
+        <h3>ROUND <span style="margin-left:10px;"><span id="currentround"></span></h3>
+        <h3>CHAOS SPACE MARINES</h3>
+        <h3><a onclick="modround(-1)">&#9666</a> <span id="currentphase"></span> <a  onclick="modround(1)">&#9656</a></h3>
+    </div>
     <div id="containerprimary">
         <h3>MISSION</h3>
         <h3><select id="mission">

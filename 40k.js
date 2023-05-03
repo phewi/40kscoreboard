@@ -1,3 +1,5 @@
+var currentphase = localStorage.getItem('currentphase');
+var currentround = localStorage.getItem('currentround');
 var cpleft = localStorage.getItem('cpleft');
 var cpright = localStorage.getItem('cpright');
 var totalvpleft = localStorage.getItem('totalvpleft');
@@ -10,6 +12,65 @@ var secvp3left = localStorage.getItem('secvp3left');
 var secvp1right = localStorage.getItem('secvp1right');
 var secvp2right = localStorage.getItem('secvp2right');
 var secvp3right = localStorage.getItem('secvp3right');
+
+
+function modround(value){
+    if(value>0){
+        if(currentphase<8){
+            currentphase++;
+        }
+        if(currentphase==8){
+            currentphase=1;
+            currentround++;
+        }
+        
+    }
+    else if(value<0){
+        if(currentphase==1){
+            currentphase=7;
+            if (currentround==1 || currentphase==1){
+                currentphase=1;
+            }
+            else{
+                currentround--;}
+            }
+        else {
+            currentphase--;
+        }
+
+    }
+            
+    if(currentphase==1){
+        phasename = "Command Phase";
+    }
+    else if(currentphase==2){
+        phasename = "Movement Phase";
+    }
+    else if(currentphase==3){
+        phasename = "Psychic Phase";
+    }
+    else if(currentphase==4){
+        phasename = "Shooting Phase";
+    }
+    else if(currentphase==5){
+        phasename = "Charge Phase";
+    }
+    else if(currentphase==6){
+        phasename = "Combat Phase";
+    }
+    else if(currentphase==7){
+        phasename = "Morale Phase";
+    }
+    
+    
+    document.getElementById("currentphase").innerHTML = phasename;
+    document.getElementById("currentround").innerHTML = currentround
+    localStorage.setItem('currentphase',currentphase)
+    localStorage.setItem('currentround',currentround)
+    ;
+
+}
+
 
 function modcpleft(value){
     if(value>0){cpleft++;}
@@ -212,8 +273,8 @@ document.getElementById("secondary3left").onchange = function() {
 window.onload = function(){
 
     //load dropdowns and set them to default if not in local storage
-    if(!localStorage['mission']){
-        localStorage.setItem('mission','-- Select mission--');}
+    //if(!localStorage['mission']){
+    //    localStorage.setItem('mission','-- Select mission--');}
     if(!localStorage['factionleft']){
         localStorage.setItem('factionleft','-- Select faction--');}
     if(!localStorage['factionright']){
@@ -235,7 +296,8 @@ window.onload = function(){
     if(!localStorage['secondary3left']){
         localStorage.setItem('secondary3left','-- Select --');}   
     
-    document.getElementById("mission").value = localStorage['mission'];
+
+    //document.getElementById("mission").value = localStorage['mission'];
     document.getElementById("factionright").value = localStorage['factionright'];
     document.getElementById("factionleft").value = localStorage['factionleft'];
     document.getElementById("secondary1right").value = localStorage['secondary1right'];
@@ -244,7 +306,6 @@ window.onload = function(){
     document.getElementById("secondary1left").value = localStorage['secondary1left'];
     document.getElementById("secondary2left").value = localStorage['secondary2left'];
     document.getElementById("secondary3left").value = localStorage['secondary3left'];
-
 
     //load cp and vp values and set them to default if not in local storage
     
@@ -260,9 +321,12 @@ window.onload = function(){
     if(!localStorage['secvp3right']){localStorage.setItem('secvp3right',0);}
     if(!localStorage['primaryvpleft']){localStorage.setItem('primaryvpleft',0);}
     if(!localStorage['primaryvpright']){localStorage.setItem('primaryvpright',0);}
+    if(!localStorage['currentphase']){localStorage.setItem('currentphase',1);}
+    if(!localStorage['currentround']){localStorage.setItem('currentround',1);}
     
 
 
+ 
     document.getElementById("cpright").innerHTML = localStorage['cpright'];
     document.getElementById("cpleft").innerHTML = localStorage['cpleft'];
     document.getElementById("totalvpleft").innerHTML = localStorage['totalvpleft'];
@@ -275,7 +339,31 @@ window.onload = function(){
     document.getElementById("secvp3right").innerHTML = localStorage['secvp3right'];
     document.getElementById("primaryvpleft").innerHTML = localStorage['primaryvpleft'];
     document.getElementById("primaryvpright").innerHTML = localStorage['primaryvpright'];
+    document.getElementById("currentround").innerHTML = localStorage['currentround'];
     
+    if(currentphase==1){
+        phasename = "Command Phase";
+    }
+    else if(currentphase==2){
+        phasename = "Movement Phase";
+    }
+    else if(currentphase==3){
+        phasename = "Psychic Phase";
+    }
+    else if(currentphase==4){
+        phasename = "Shooting Phase";
+    }
+    else if(currentphase==5){
+        phasename = "Charge Phase";
+    }
+    else if(currentphase==6){
+        phasename = "Combat Phase";
+    }
+    else if(currentphase==7){
+        phasename = "Morale Phase";
+    }
+    document.getElementById("currentphase").innerHTML = phasename;
+      
 
 
 
