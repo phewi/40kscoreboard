@@ -1,5 +1,8 @@
+var factionright = localStorage.getItem('factionright');
+var factionleft = localStorage.getItem('factionleft');
 var currentphase = localStorage.getItem('currentphase');
 var currentround = localStorage.getItem('currentround');
+var currentplayer = localStorage.getItem('currentplayer');
 var cpleft = localStorage.getItem('cpleft');
 var cpright = localStorage.getItem('cpright');
 var totalvpleft = localStorage.getItem('totalvpleft');
@@ -14,25 +17,42 @@ var secvp2right = localStorage.getItem('secvp2right');
 var secvp3right = localStorage.getItem('secvp3right');
 
 
-function modround(value){
+function modphase(value){
+  
+    //forwards in phases
     if(value>0){
+
         if(currentphase<8){
             currentphase++;
         }
         if(currentphase==8){
             currentphase=1;
-            currentround++;
+            if(currentplayer==factionleft){
+                currentround++;
+                currentplayer=factionright;
+                localStorage.setItem('currentplayer',currentplayer);
+                document.getElementById("currentplayer").innerHTML = currentplayer;
+            }
+            else {
+                currentplayer=factionleft;
+                localStorage.setItem('currentplayer',currentplayer);
+                document.getElementById("currentplayer").innerHTML = currentplayer;
+            }
         }
-        
     }
+    //backwards in phases
     else if(value<0){
         if(currentphase==1){
             currentphase=7;
             if (currentround==1 || currentphase==1){
                 currentphase=1;
             }
+            
+            
             else{
-                currentround--;}
+                currentround--;
+                
+            }
             }
         else {
             currentphase--;
@@ -64,10 +84,9 @@ function modround(value){
     
     
     document.getElementById("currentphase").innerHTML = phasename;
-    document.getElementById("currentround").innerHTML = currentround
-    localStorage.setItem('currentphase',currentphase)
-    localStorage.setItem('currentround',currentround)
-    ;
+    document.getElementById("currentround").innerHTML = currentround;
+    localStorage.setItem('currentphase',currentphase);
+    localStorage.setItem('currentround',currentround);
 
 }
 
@@ -217,6 +236,10 @@ document.getElementById("factionleft").onchange = function() {
         else if (text=="-- Select faction --"){
             element.style.backgroundImage = "none";
         }
+        //set round tracker
+     if(currentplayer==factionleft){
+        document.getElementById("currentplayer").innerHTML = localStorage['factionleft'];
+    }
     }
 document.getElementById("factionright").onchange = function() {
     localStorage['factionright'] = document.getElementById("factionright").value;
@@ -248,6 +271,11 @@ document.getElementById("factionright").onchange = function() {
         else if (text=="-- Select faction --"){
             element.style.backgroundImage = "none";
         }
+//set round tracker
+     if(currentplayer==factionright){
+        document.getElementById("currentplayer").innerHTML = localStorage['factionright'];
+    }
+    
 }
 //Change background end
 
@@ -306,6 +334,7 @@ window.onload = function(){
     document.getElementById("secondary1left").value = localStorage['secondary1left'];
     document.getElementById("secondary2left").value = localStorage['secondary2left'];
     document.getElementById("secondary3left").value = localStorage['secondary3left'];
+    document.getElementById("currentplayer").value = localStorage['currentplayer'];
 
     //load cp and vp values and set them to default if not in local storage
     
@@ -323,10 +352,10 @@ window.onload = function(){
     if(!localStorage['primaryvpright']){localStorage.setItem('primaryvpright',0);}
     if(!localStorage['currentphase']){localStorage.setItem('currentphase',1);}
     if(!localStorage['currentround']){localStorage.setItem('currentround',1);}
+    if(!localStorage['currentplayer']){localStorage.setItem('currentplayer',currentplayer);}
+    
     
 
-
- 
     document.getElementById("cpright").innerHTML = localStorage['cpright'];
     document.getElementById("cpleft").innerHTML = localStorage['cpleft'];
     document.getElementById("totalvpleft").innerHTML = localStorage['totalvpleft'];
@@ -340,6 +369,7 @@ window.onload = function(){
     document.getElementById("primaryvpleft").innerHTML = localStorage['primaryvpleft'];
     document.getElementById("primaryvpright").innerHTML = localStorage['primaryvpright'];
     document.getElementById("currentround").innerHTML = localStorage['currentround'];
+    document.getElementById("currentplayer").innerHTML = localStorage['currentplayer'];
     
     if(currentphase==1){
         phasename = "Command Phase";
@@ -364,15 +394,6 @@ window.onload = function(){
     }
     document.getElementById("currentphase").innerHTML = phasename;
       
-
-
-
-
-
-
-
-
-
 
 
 
