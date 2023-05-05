@@ -25,6 +25,9 @@ h1, h2, h3, h4{
 h1 {
     font-size: 5em;
 }
+h1.vpcp {
+    margin: 0em;
+}
 h2 {
     font-size: 3em;
 }
@@ -36,6 +39,9 @@ p {
 span#currentphase{
     width: 285px;
     display: inline-block;
+}
+.roundmargin{
+    margin:auto 1em;
 }
 select{
     background:none;
@@ -169,6 +175,7 @@ a.vpdown:active{
   }
 
 .faction{
+    margin-top: 0.4em !important;
     margin: 0;
 }
 .role{

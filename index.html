@@ -11,8 +11,8 @@
   </head>
   <body onload="letsago()">
     <div id="containerround">
-        <h3>ROUND <span style="margin-left:10px;"><span id="currentround"></span></h3>
-        <h3><span id="currentplayer"></span></h3>
+        <h3><a class="roundmargin" onclick="modround(-1)">&#9666</a>ROUND <span style="margin-left:10px;"><span id="currentround"></span><a class="roundmargin" onclick="modround(1)">&#9656</a></h3>
+        <h3><a onclick="changecurrentplayer()"><span id="currentplayer"></span></a></h3>
         <h3><a onclick="modphase(-1)">&#9666</a> <span id="currentphase"></span> <a  onclick="modphase(1)">&#9656</a></h3>
     </div>
     <div id="containerprimary">
@@ -61,7 +61,7 @@
             </h1>
             <h2 class="role">Attacker</h2>
             <div class="vpandcpcontainer">
-                <h1><span id="totalvpleft"></span> VP <span id="cpleft"></span> CP 
+                <h1 class="vpcp"><span id="totalvpleft"></span> VP <span id="cpleft"></span> CP 
                     <a class="vpbutton vpup" onclick="modcpleft(1)">&#9652</a> 
                     <a class="vpbutton vpdown" onclick="modcpleft(-1)">&#9662</a></span></h1>
                 
@@ -219,7 +219,7 @@
                 </select>  
             </h1>
             <h2 class="role wrap_right">Defender</h2>
-            <h1 class="wrap_right"><span id="totalvpright"></span> VP <span id="cpright" class="wrap_right"></span> CP
+            <h1 class="vpcp wrap_right"><span id="totalvpright"></span> VP <span id="cpright" class="wrap_right"></span> CP
                 <a class="vpbutton vpup" onclick="modcpright(1)">&#9652</a> 
                 <a class="vpbutton vpdown" onclick="modcpright(-1)">&#9662</a></span></h1>
             <h2 class="wrap_right">Primary objective</h2>

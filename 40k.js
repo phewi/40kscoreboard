@@ -16,44 +16,67 @@ var secvp1right = localStorage.getItem('secvp1right');
 var secvp2right = localStorage.getItem('secvp2right');
 var secvp3right = localStorage.getItem('secvp3right');
 
+function modround(value){
+    currentround = localStorage.getItem('currentround');
+    
+    if(value>0){
+        
+        if(currentround<5){
+            currentround++;
+        }
+    }
+    else if(value<0){
+        if(currentround>1){
+            currentround--;
+        }
+}
+localStorage.setItem('currentround',currentround);
+document.getElementById("currentround").innerHTML = currentround;
+}
 
+function changecurrentplayer(){
+    factionright = localStorage.getItem('factionright');
+    factionleft = localStorage.getItem('factionleft');
+    currentplayer = localStorage.getItem('currentplayer');
+    if(currentplayer==factionright){
+        localStorage.setItem('currentplayer',factionleft);
+        document.getElementById("currentplayer").innerHTML = factionleft;
+            }
+    else if(currentplayer==factionleft){
+        localStorage.setItem('currentplayer',factionright);
+        document.getElementById("currentplayer").innerHTML = factionright;
+        
+    }
+    else{
+        localStorage.setItem('currentplayer',factionright);
+        document.getElementById("currentplayer").innerHTML = factionright;
+    }
+}
 function modphase(value){
-  
+    factionright = localStorage.getItem('factionright');
+    currentplayer = localStorage.getItem('currentplayer');
     //forwards in phases
     if(value>0){
-
+        
         if(currentphase<8){
             currentphase++;
         }
         if(currentphase==8){
+            if(currentplayer==factionright){
+                modround(1)
+            }
+
             currentphase=1;
-            if(currentplayer==factionleft){
-                currentround++;
-                currentplayer=factionright;
-                localStorage.setItem('currentplayer',currentplayer);
-                document.getElementById("currentplayer").innerHTML = currentplayer;
-            }
-            else {
-                currentplayer=factionleft;
-                localStorage.setItem('currentplayer',currentplayer);
-                document.getElementById("currentplayer").innerHTML = currentplayer;
-            }
+            changecurrentplayer();
         }
     }
     //backwards in phases
     else if(value<0){
+              
         if(currentphase==1){
             currentphase=7;
-            if (currentround==1 || currentphase==1){
-                currentphase=1;
-            }
-            
-            
-            else{
-                currentround--;
-                
-            }
-            }
+            changecurrentplayer();
+        }
         else {
             currentphase--;
         }
@@ -236,10 +259,7 @@ document.getElementById("factionleft").onchange = function() {
         else if (text=="-- Select faction --"){
             element.style.backgroundImage = "none";
         }
-        //set round tracker
-     if(currentplayer==factionleft){
-        document.getElementById("currentplayer").innerHTML = localStorage['factionleft'];
-    }
+
     }
 document.getElementById("factionright").onchange = function() {
     localStorage['factionright'] = document.getElementById("factionright").value;
@@ -271,10 +291,6 @@ document.getElementById("factionright").onchange = function() {
         else if (text=="-- Select faction --"){
             element.style.backgroundImage = "none";
         }
-//set round tracker
-     if(currentplayer==factionright){
-        document.getElementById("currentplayer").innerHTML = localStorage['factionright'];
-    }
     
 }
 //Change background end
@@ -334,7 +350,7 @@ window.onload = function(){
     document.getElementById("secondary1left").value = localStorage['secondary1left'];
     document.getElementById("secondary2left").value = localStorage['secondary2left'];
     document.getElementById("secondary3left").value = localStorage['secondary3left'];
-    document.getElementById("currentplayer").value = localStorage['currentplayer'];
+    
 
     //load cp and vp values and set them to default if not in local storage
     
@@ -352,7 +368,8 @@ window.onload = function(){
     if(!localStorage['primaryvpright']){localStorage.setItem('primaryvpright',0);}
     if(!localStorage['currentphase']){localStorage.setItem('currentphase',1);}
     if(!localStorage['currentround']){localStorage.setItem('currentround',1);}
-    if(!localStorage['currentplayer']){localStorage.setItem('currentplayer',currentplayer);}
+    if(!localStorage['currentplayer']){localStorage.setItem('currentplayer',"-- Select faction --");}
+    
     
     
 
@@ -371,28 +388,33 @@ window.onload = function(){
     document.getElementById("currentround").innerHTML = localStorage['currentround'];
     document.getElementById("currentplayer").innerHTML = localStorage['currentplayer'];
     
-    if(currentphase==1){
+   
+    var currentphasex = localStorage['currentphase']
+
+    if(currentphasex==1){
         phasename = "Command Phase";
     }
-    else if(currentphase==2){
+    else if(currentphasex==2){
         phasename = "Movement Phase";
     }
-    else if(currentphase==3){
+    else if(currentphasex==3){
         phasename = "Psychic Phase";
     }
-    else if(currentphase==4){
+    else if(currentphasex==4){
         phasename = "Shooting Phase";
     }
-    else if(currentphase==5){
+    else if(currentphasex==5){
         phasename = "Charge Phase";
     }
-    else if(currentphase==6){
+    else if(currentphasex==6){
         phasename = "Combat Phase";
     }
-    else if(currentphase==7){
+    else if(currentphasex==7){
         phasename = "Morale Phase";
     }
+    
     document.getElementById("currentphase").innerHTML = phasename;
+    
       
 
 
