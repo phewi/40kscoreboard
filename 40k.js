@@ -62,10 +62,6 @@ function modphase(value){
             currentphase++;
         }
         if(currentphase==8){
-            if(currentplayer==factionright){
-                modround(1)
-            }
-
             currentphase=1;
             changecurrentplayer();
         }
