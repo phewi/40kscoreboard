@@ -66,7 +66,7 @@ select option{
     color:black;
 }
 #containerround h3 {
-    line-height: 1em;
+    line-height: 0.5em;
 }
 #containerround{
     /*position:absolute;*/
@@ -196,4 +196,7 @@ select.secondaryselector{
 }
 #mission{
     text-align: center;
+}
+#containersecondaries{
+    display:none
 }

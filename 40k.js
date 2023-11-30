@@ -58,10 +58,10 @@ function modphase(value){
     //forwards in phases
     if(value>0){
         
-        if(currentphase<8){
+        if(currentphase<6){
             currentphase++;
         }
-        if(currentphase==8){
+        if(currentphase==6){
             currentphase=1;
             changecurrentplayer();
         }
@@ -70,7 +70,7 @@ function modphase(value){
     else if(value<0){
               
         if(currentphase==1){
-            currentphase=7;
+            currentphase=5;
             changecurrentplayer();
         }
         else {
@@ -86,19 +86,13 @@ function modphase(value){
         phasename = "Movement Phase";
     }
     else if(currentphase==3){
-        phasename = "Psychic Phase";
-    }
-    else if(currentphase==4){
         phasename = "Shooting Phase";
     }
-    else if(currentphase==5){
+    else if(currentphase==4){
         phasename = "Charge Phase";
     }
-    else if(currentphase==6){
-        phasename = "Combat Phase";
-    }
-    else if(currentphase==7){
-        phasename = "Morale Phase";
+    else if(currentphase==5){
+        phasename = "Fight Phase";
     }
     
     
@@ -252,6 +246,9 @@ document.getElementById("factionleft").onchange = function() {
         else if (text=="Necrons"){
             element.style.backgroundImage = "url('images/bg_nec.jpg')";
         }
+        else if (text=="Space Marines"){
+            element.style.backgroundImage = "url('images/bg_sm.jpg')";
+        }
         else if (text=="-- Select faction --"){
             element.style.backgroundImage = "none";
         }
@@ -283,6 +280,9 @@ document.getElementById("factionright").onchange = function() {
         }
         else if (text=="Necrons"){
             element.style.backgroundImage = "url('images/bg_nec_r.jpg')";
+        }
+        else if (text=="Space Marines"){
+            element.style.backgroundImage = "url('images/bg_sm_r.jpg')";
         }
         else if (text=="-- Select faction --"){
             element.style.backgroundImage = "none";
