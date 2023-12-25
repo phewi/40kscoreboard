@@ -82,7 +82,7 @@ select option{
     opacity: 80%;
 }
 #containerprimary{
-    display: none;
+    display:none;
     /*position:absolute;*/
     text-align: center;
     
@@ -104,10 +104,19 @@ span.vpsecondary {
 #cpright {
     margin-left: 75px;
 }
-#secvp1left,#secvp2left,#secvp3left,#secvp1right, #secvp2right,#secvp3right,#primaryvpleft,#primaryvpright{
+#primaryvpleft,#primaryvpright, #secvp1left,#secvp1right{
+    display:inline-block;
+    width: 32px !important;
+    text-align: right;
+}
+#secvp2left, #secvp3left, #secvp2right,#secvp3right, #secvp2left{
+    display: none;
     width: 32px;
     text-align: right;
-    display: inline-block;
+    
+}
+#leftsecondary2{
+    display: none;
 }
 #totalvpleft,#totalvpright,#cpright,#cpleft{
     width:75px;
@@ -198,5 +207,5 @@ select.secondaryselector{
     text-align: center;
 }
 #containersecondaries{
-    display:none
+    
 }

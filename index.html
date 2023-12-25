@@ -67,20 +67,25 @@
                     <a class="vpbutton vpdown" onclick="modcpleft(-1)">&#9662</a></span></h1>
                 
             </div>
-            <h2>Primary objective</h2>
+            <h2>Primary mission</h2>
             <h3 class="sec">
-            <span class="vpsecondary" id="leftprimary"><span id="primaryvpleft"> </span> VP
+            <span class="vpsecondary" id="leftprimary"><span id="primaryvpleft"> </span> / 50 VP
                 <a class="vpbutton vpup" onclick="modprimaryvpleft(1)">&#9652</a> 
                 <a class="vpbutton vpdown" onclick="modprimaryvpleft(-1)">&#9662</a></span>
             </h3>
+            
+            
+            
+            
             <div id="containersecondaries">
-                <h2>Secondary objectives</h2>
+                <h2>Secondary missions</h2>
 
                 <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
-                    <span style="margin-left:10px;"><span id="secvp1left"></span> / 15 VP</span>
+                    <span style="margin-left:10px;"><span id="secvp1left"></span> / 40 VP</span>
                     <a class="vpbutton vpup" onclick="modsecvp1left(1)">&#9652</a> 
                     <a class="vpbutton vpdown" onclick="modsecvp1left(-1)">&#9662</a>
                     </h3>
+                    <h2>Active Secondary missions</h2>
                     <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
                 <select id="secondary1left" class="secondaryselector"> 
                     <option value="-- Select --">-- Select --</option>
@@ -111,11 +116,15 @@
                 </select>
                     </h3>
                 <h3 class="sec"><span class="vpsecondary" id="leftsecondary2"></span>
-                    <span style="margin-left:10px;"><span id="secvp2left"></span> / 15 VP</span>
-                    <a class="vpbutton vpup" onclick="modsecvp2left(1)">&#9652</a> 
-                    <a class="vpbutton vpdown"onclick="modsecvp2left(-1)">&#9662</a>
+                    <span style="margin-left:10px;display:none;"><span id="secvp2left"></span>
                     </h3>
-                    <h3 class="sec"><span class="vpsecondary" id="leftsecondary2"></span>
+
+
+                    
+                    <h3 class="sec" ><span class="vpsecondary" id="leftsecondary2"></span>
+
+
+
                     <select id="secondary2left" class="secondaryselector"> 
                         <option value="-- Select --">-- Select --</option>
                         <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
@@ -145,13 +154,11 @@
                 </select>
                     </h3>
                 <h3 class="sec"><span class="vpsecondary" id="leftsecondary3"></span>
-                    <span style="margin-left:10px;"><span id="secvp3left"></span> / 15 VP</span>
-                    <a class="vpbutton vpup" onclick="modsecvp3left(1)">&#9652</a> 
-                    <a class="vpbutton vpdown"onclick="modsecvp3left(-1)">&#9662</a>
+                    <span style="margin-left:10px; display:none;"><span id="secvp3left"></span>
                     </h3>
                     <h3 class="sec"><span class="vpsecondary" id="leftsecondary3"></span>
                     <select id="secondary3left" class="secondaryselector"> 
-                        <option value="-- Select --">-- Select --</option>
+                        <option value="-- Select --"></option>
                         <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
                         <option value="AREA DENIAL">AREA DENIAL</option>
                         <option value="ASSASSINATION">ASSASSINATION</option>
@@ -200,19 +207,24 @@
             <h1 class="vpcp wrap_right"><span id="totalvpright"></span> VP <span id="cpright" class="wrap_right"></span> CP
                 <a class="vpbutton vpup" onclick="modcpright(1)">&#9652</a> 
                 <a class="vpbutton vpdown" onclick="modcpright(-1)">&#9662</a></span></h1>
-            <h2 class="wrap_right">Primary objective</h2>
+            <h2 class="wrap_right">Primary mission</h2>
             <h3 class="wrap_right sec">
-            <span class="vpsecondary" id="rightprimary"><span id="primaryvpright"></span> VP 
+            <span class="vpsecondary" id="rightprimary"><span id="primaryvpright"></span> / 50 VP 
                 <a class="vpbutton vpup" onclick="modprimaryvpright(1)">&#9652</a> 
                 <a class="vpbutton vpdown" onclick="modprimaryvpright(-1)">&#9662</a></span>
             </h3>
-            <div id="containersecondaries">
-            <h2 class="wrap_right">Secondary objectives</h2>
+            
+            
+            
+            
+        <div id="containersecondaries">
+            <h2 class="wrap_right">Secondary missions</h2>
             <h3 class="wrap_right sec">
-            <span class="vpsecondary" id="rightsecondary1"><span id="secvp1right"></span> / 15 VP
+            <span class="vpsecondary" id="rightsecondary1"><span id="secvp1right"></span> / 40 VP
                 <a class="vpbutton vpup" onclick="modsecvp1right(1)">&#9652</a> 
                 <a class="vpbutton vpdown" onclick="modsecvp1right(-1)">&#9662</a></span>
                 </h3>
+                <h2 class="wrap_right">Active secondary missions</h2>
             <h3 class="wrap_right sec">
                 <select id="secondary1right" class="secondaryselector wrap_right"> 
                     <option value="-- Select --">-- Select --</option>
@@ -243,9 +255,10 @@
                 </select>
                 </h3>
         <h3 class="wrap_right sec">
-            <span class="vpsecondary" id="rightsecondary2"><span id="secvp2right"></span> / 15 VP
-                <a class="vpbutton vpup" onclick="modsecvp2right(1)">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="modsecvp2right(-1)">&#9662</a></span></h3>
+            <span class="vpsecondary" id="rightsecondary2"><span id="secvp2right"></span>
+                </h3>
+
+
         <h3 class="wrap_right sec">
             <select id="secondary2right" class="secondaryselector wrap_right"> 
                 <option value="-- Select --">-- Select --</option>
@@ -275,12 +288,11 @@
                 <option value="DEPLOY TELEPORT HOMER (Fixed)">DEPLOY TELEPORT HOMER (Fixed)</option>       
         </select> 
         <h3 class="wrap_right sec">
-            <span class="vpsecondary" id="rightsecondary3"><span id="secvp3right"></span> / 15 VP
-                <a class="vpbutton vpup" onclick="modsecvp3right(1)">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="modsecvp3right(-1)">&#9662</a></span></h3>
+            <span class="vpsecondary" id="rightsecondary3"><span id="secvp3right"></span>
+                </h3>
                 <h3 class="wrap_right sec">
             <select id="secondary3right" class="secondaryselector wrap_right"> 
-                <option value="-- Select --">-- Select --</option>
+                <option value="-- Select --"></option>
                 <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
                 <option value="AREA DENIAL">AREA DENIAL</option>
                 <option value="ASSASSINATION">ASSASSINATION</option>

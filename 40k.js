@@ -131,7 +131,7 @@ function modprimaryvpleft(value){
     localStorage.setItem('primaryvpleft',primaryvpleft)
 }
 function modsecvp1left(value){
-    if(value>0){if(secvp1left<=14){secvp1left++;
+    if(value>0){if(secvp1left<=39){secvp1left++;
             modtotalvpleft(1)} 
     }
     else {if(secvp1left>0){secvp1left--;
@@ -140,7 +140,7 @@ function modsecvp1left(value){
     localStorage.setItem('secvp1left',secvp1left)
 }
 function modsecvp2left(value){
-    if(value>0){if(secvp2left<=14){secvp2left++;
+    if(value>0){if(secvp2left<=39){secvp2left++;
         modtotalvpleft(1)} 
 }
     else {if(secvp2left>0){secvp2left--;
@@ -149,7 +149,7 @@ function modsecvp2left(value){
     localStorage.setItem('secvp2left',secvp2left)
 }
 function modsecvp3left(value){
-    if(value>0){if(secvp3left<=14){secvp3left++;
+    if(value>0){if(secvp3left<=39){secvp3left++;
         modtotalvpleft(1)} 
 }
     else {if(secvp3left>0){secvp3left--;
@@ -172,7 +172,7 @@ function modprimaryvpright(value){
     localStorage.setItem('primaryvpright',primaryvpright)
 }
 function modsecvp1right(value){
-    if(value>0){if(secvp1right<=14){secvp1right++;
+    if(value>0){if(secvp1right<=39){secvp1right++;
         modtotalvpright(1)} 
 }
     else {if(secvp1right>0){secvp1right--;
@@ -181,7 +181,7 @@ function modsecvp1right(value){
     localStorage.setItem('secvp1right',secvp1right)
 }
 function modsecvp2right(value){
-    if(value>0){if(secvp2right<=14){secvp2right++;
+    if(value>0){if(secvp2right<=39){secvp2right++;
         modtotalvpright(1)} 
 }
     else {if(secvp2right>0){secvp2right--;
@@ -190,7 +190,7 @@ function modsecvp2right(value){
     localStorage.setItem('secvp2right',secvp2right)
 }
 function modsecvp3right(value){
-    if(value>0){if(secvp3right<=14){secvp3right++;
+    if(value>0){if(secvp3right<=39){secvp3right++;
         modtotalvpright(1)} 
 }
     else {if(secvp3right>0){secvp3right--;
