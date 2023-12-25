@@ -69,9 +69,7 @@ select option{
     line-height: 0.5em;
 }
 #containerround{
-    /*position:absolute;*/
     text-align: center;
-    
     margin:0 auto;
     width:481px;
     bottom:0;
@@ -80,6 +78,22 @@ select option{
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 80%;
+}
+h3#timer {
+    margin-top: 0;
+    display:inline-block;
+}
+
+h3.timerbutton{
+    margin-top: 0;
+    display: inline-block;
+    font-size: 18px;
+    vertical-align: middle;
+}
+a#resetButton {
+    position: absolute;
+    margin-left: 10px;
+    top: 173px;
 }
 #containerprimary{
     display:none;

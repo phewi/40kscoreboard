@@ -1,3 +1,4 @@
+
 var factionright = localStorage.getItem('factionright');
 var factionleft = localStorage.getItem('factionleft');
 var currentphase = localStorage.getItem('currentphase');
@@ -198,6 +199,7 @@ function modsecvp3right(value){
     document.getElementById("secvp3right").innerHTML = secvp3right;
     localStorage.setItem('secvp3right',secvp3right)
 }
+
 function letsago() {
     document.getElementById("cpleft").innerHTML = cpleft;
     document.getElementById("cpright").innerHTML = cpright;
