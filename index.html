@@ -1,57 +1,127 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"-->
-    <link href="style.css" rel="stylesheet" >
+    <link href="style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
+
     <title>40k Scoreboard</title>
-  </head>
-  <body onload="letsago()">
-    <div id="containerround">
-        <h3><a class="roundmargin" onclick="modround(-1)">&#9666</a>ROUND <span style="margin-left:10px;"><span id="currentround"></span><a class="roundmargin" onclick="modround(1)">&#9656</a></h3>
-        <h3><a onclick="changecurrentplayer()"><span id="currentplayer"></span></a></h3>
-        <h3><a onclick="modphase(-1)">&#9666</a> <span id="currentphase"></span> <a  onclick="modphase(1)">&#9656</a></h3>
-        <h3 id="timer" onclick="startPauseTimer()">45:00</h3>
-    <a id="resetButton" onclick="resetTimer()">↻</a>
-    <script src="timer.js"></script>
-    <audio id="alertSound" src="alert.mp3"></audio>
+</head>
+
+<body onload="letsago()">
+    <div class="rulepopup" id="setuprules" style="display: none;">
+        <h2>1 LEVIATHAN SETUP</h2>
+        <h3>1 MUSTER ARMIES</h3>
+        <p>Armeijalistat vastustajalle.</p>
+
+        <h3>2 DETERMINE MISSION</h3>
+        <p>Nostetaan randomisti</p>
+        <ul>
+            <li>Deployment deck</li>
+            <li>Primary Mission deck</li>
+            <li>Mission Rule deck</li>
+        </ul>
+
+        <h3>3 READ MISSION</h3>
+
+        <p>Lukekaa ääneen Primary Mission ja Mission Rule</p>
+
+        <h3>4 PLACE OBJECTIVE MARKERS</h3>
+        <p>Players now set up objective markers on the battlefield. Each Deployment card’s deployment map will show
+            players how many objective markers to set up and where each should be placed.</p>
+        <h3>5 CREATE THE BATTLEFIELD</h3>
+        <p>Rakentakaa terrain</p>
+        <h3>6 DETERMINE ATTACKER AND DEFENDER</h3>
+        <ul>
+            <li>Päättäkää kumpi puoli on attacker ja defender</li>
+            <li>Roll off ja voittaja päättää kumpi on attacker ja defender</li>
+            <li>Pelaajat ottavat oman Secondary Mission ja Gambit Deckinsä</li>
+        </ul>
+
+        <h3>7 SELECT SECONDARY MISSIONS</h3>
+        <ul>
+            <li>Valitkaa salassa joko Tactical tai Fixed Objectivet</li>
+            <li>Tactical: Valitse 2 mitä vain korttia, joissa ei ole alareunassa lista-ikonia </li>
+            <li>Fixed: Valitse 2 fixed korttia joita käytät (alareunassa lista-ikoni)</li>
+            <li>Paljastakaa valinnat yhtäaikaa</li>
+        </ul>
+        <h3>8 DECLARE BATTLE FORMATIONS</h3>
+        <p>Pelaajat merkitsee salassa</p>
+        <ul>
+            <li>Mitkä Leaderit on liitetty mihinkin Unittiin</li>
+            <li>Mitkä Unitit aloittavat sisällä missä Transporteissa</li>
+            <li>Mitkä Unitit aloittavat Deep Strikessä</li>
+            <li>Mitkä Unitit aloittavat Strategic Reserveissä (max puolet Uniteista ja pisteistä)</li>
+        </ul>
+        <h3>9 DEPLOY ARMIES</h3>
+        <p>Deployment vuorotellen aloittaen Defenderistä</p>
+
+        <h3>10 DETERMINE FIRST TURN</h3>
+        <p>Roll off ja voittaja aloittaa</p>
+        <h3>11 RESOLVE PRE-BATTLE RULES</h3>
+        <p>Pelaajat tekevät pre-battle sääntönsä vuorotellen aloittaen aloittajasta</p>
+
+        <h3>12 BEGIN THE BATTLE</h3>
+        <p>Taistelu alkaa. Jos käyttää Tactical Missions niin jokaisen vuoron lopussa voi myydä yhden Secondary
+            Missionin pois ja saada 1CP</p>
+        <p>3. vuoron alussa valitaan Gambit </p>
     </div>
+    <div class="rulepopup chdfaq" id="rules2" style="display: none;">
+        <iframe style="width:100%;height:100%;border:none;"src="https://docs.google.com/document/d/e/2PACX-1vSCO5dLgDO7_QpzI2YcU3irkNGkIqNEyVG_okXN30WmPwg9Z9zPl_ny_HVfsHCBmVa5s6xGKcyDouVt/pub?embedded=true"></iframe>
+    </div>
+    <div id="containerround">
+        <h3><a class="roundmargin" onclick="modround(-1)">&#9666</a>ROUND <span style="margin-left:10px;"><span
+                    id="currentround"></span><a class="roundmargin" onclick="modround(1)">&#9656</a></h3>
+        <h3><a onclick="changecurrentplayer()"><span id="currentplayer"></span></a></h3>
+        <h3><a onclick="modphase(-1)">&#9666</a> <span id="currentphase"></span> <a onclick="modphase(1)">&#9656</a>
+        </h3>
+        <h3 id="timer" onclick="startPauseTimer()">45:00</h3>
+
+        <a id="resetButton" onclick="resetTimer()">↻</a>
+
+        <script src="timer.js"></script>
+
+        <audio id="alertSound" src="alert.mp3"></audio>
+    </div>
+    <script src="displayrules.js"></script>
+
+
     <div id="containerprimary">
         <h3>MISSION</h3>
         <h3><select id="mission">
-            <option value="-- Select mission--">-- Select mission --</option>
-            <option disabled>-- Arks of Omen GT --</option>
-            <option disabled>-- Battle Size: Incursion--</option>
-            <option value="Cleanse the Land">Cleanse the Land</option>
-            <option value="Deliverance">Deliverance</option>
-            <option value="Desperate Raid">Desperate Raid</option>
-            <option value="Sacred Ground">Sacred Ground</option>
-            <option value="Ascension">Ascension</option>
-            <option value="Surge of Faith">Surge of Faith</option>
-            <option value="Rise of the Machine Spirit">Rise of the Machine Spirit</option>
-            <option value="Display of Spiritual Might">Display of Spiritual Might</option>
-            <option value="Reconnaissance Mission">Reconnaissance Mission</option>
-            <option disabled>-- Arks of Omen GT --</option>
-            <option disabled>-- Battle Size: Strike Force--</option>
-            <option value="Recover the Relics">Recover the Relics</option>
-            <option value="Tear Down Their Icons">Tear Down Their Icons</option>
-            <option value="Data Scry-salvage">Data Scry-salvage</option>
-            <option value="Abandoned Sanctuaries">Abandoned Sanctuaries</option>
-            <option value="Conversion">Conversion</option>
-            <option value="The Scouring">The Scouring</option>
-            <option value="Tide of Conviction">Tide of Conviction</option>
-            <option value="Death and Zeal">Death and Zeal</option>
-            <option value="Secure Missing Artefacts">Secure Missing Artefacts</option>
-        </select></h3>
-        
+                <option value="-- Select mission--">-- Select mission --</option>
+                <option disabled>-- Arks of Omen GT --</option>
+                <option disabled>-- Battle Size: Incursion--</option>
+                <option value="Cleanse the Land">Cleanse the Land</option>
+                <option value="Deliverance">Deliverance</option>
+                <option value="Desperate Raid">Desperate Raid</option>
+                <option value="Sacred Ground">Sacred Ground</option>
+                <option value="Ascension">Ascension</option>
+                <option value="Surge of Faith">Surge of Faith</option>
+                <option value="Rise of the Machine Spirit">Rise of the Machine Spirit</option>
+                <option value="Display of Spiritual Might">Display of Spiritual Might</option>
+                <option value="Reconnaissance Mission">Reconnaissance Mission</option>
+                <option disabled>-- Arks of Omen GT --</option>
+                <option disabled>-- Battle Size: Strike Force--</option>
+                <option value="Recover the Relics">Recover the Relics</option>
+                <option value="Tear Down Their Icons">Tear Down Their Icons</option>
+                <option value="Data Scry-salvage">Data Scry-salvage</option>
+                <option value="Abandoned Sanctuaries">Abandoned Sanctuaries</option>
+                <option value="Conversion">Conversion</option>
+                <option value="The Scouring">The Scouring</option>
+                <option value="Tide of Conviction">Tide of Conviction</option>
+                <option value="Death and Zeal">Death and Zeal</option>
+                <option value="Secure Missing Artefacts">Secure Missing Artefacts</option>
+            </select></h3>
+
     </div>
     <div id="containerleft">
         <div class="textbox textbox-left">
             <h1 class="faction">
-                <select name="factionleft" id="factionleft" >
+                <select name="factionleft" id="factionleft">
                     <option value="-- Select faction--">-- Select faction --</option>
                     <option value="Adeptus Custodes">Adeptus Custodes</option>
                     <option value="Astra Militarum">Astra Militarum</option>
@@ -61,76 +131,77 @@
                     <option value="Death Guard">Death Guard</option>
                     <option value="Necrons">Necrons</option>
                     <option value="Space Marines">Space Marines</option>
-                    
-                </select>  
+
+                </select>
             </h1>
             <h2 class="role">Attacker</h2>
             <div class="vpandcpcontainer">
-                <h1 class="vpcp"><span id="totalvpleft"></span> VP <span id="cpleft"></span> CP 
-                    <a class="vpbutton vpup" onclick="modcpleft(1)">&#9652</a> 
-                    <a class="vpbutton vpdown" onclick="modcpleft(-1)">&#9662</a></span></h1>
-                
+                <h1 class="vpcp"><span id="totalvpleft"></span> VP <span id="cpleft"></span> CP
+                    <a class="vpbutton vpup" onclick="modcpleft(1)">&#9652</a>
+                    <a class="vpbutton vpdown" onclick="modcpleft(-1)">&#9662</a></span>
+                </h1>
+
             </div>
             <h2>Primary mission</h2>
             <h3 class="sec">
-            <span class="vpsecondary" id="leftprimary"><span id="primaryvpleft"> </span> / 50 VP
-                <a class="vpbutton vpup" onclick="modprimaryvpleft(1)">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="modprimaryvpleft(-1)">&#9662</a></span>
+                <span class="vpsecondary" id="leftprimary"><span id="primaryvpleft"> </span> / 50 VP
+                    <a class="vpbutton vpup" onclick="modprimaryvpleft(1)">&#9652</a>
+                    <a class="vpbutton vpdown" onclick="modprimaryvpleft(-1)">&#9662</a></span>
             </h3>
-            
-            
-            
-            
+
+
+
+
             <div id="containersecondaries">
                 <h2>Secondary missions</h2>
 
                 <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
                     <span style="margin-left:10px;"><span id="secvp1left"></span> / 40 VP</span>
-                    <a class="vpbutton vpup" onclick="modsecvp1left(1)">&#9652</a> 
+                    <a class="vpbutton vpup" onclick="modsecvp1left(1)">&#9652</a>
                     <a class="vpbutton vpdown" onclick="modsecvp1left(-1)">&#9662</a>
-                    </h3>
-                    <h2>Active Secondaries</h2>
-                    <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
-                <select id="secondary1left" class="secondaryselector"> 
-                    <option value="-- Select --">-- Select --</option>
-                    <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
-                    <option value="AREA DENIAL">AREA DENIAL</option>
-                    <option value="ASSASSINATION">ASSASSINATION</option>
-                    <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
-                    <option value="BRING IT DOWN">BRING IT DOWN</option>
-                    <option value="CAPTURE ENEMY OUTPOST">CAPTURE ENEMY OUTPOST</option>
-                    <option value="CLEANSE">CLEANSE</option>
-                    <option value="DEFEND STRONGHOLD">DEFEND STRONGHOLD</option>
-                    <option value="DEPLOY TELEPORT HOMER">DEPLOY TELEPORT HOMER</option>
-                    <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
-                    <option value="EXTEND BATTLE LINES">EXTEND BATTLE LINES</option>
-                    <option value="INVESTIGATE SIGNALS">INVESTIGATE SIGNALS</option>
-                    <option value="NO PRISONERS">NO PRISONERS</option>
-                    <option value="OVERWHELMING FORCE">OVERWHELMING FORCE</option>
-                    <option value="SECURE NO MAN'S LAND">SECURE NO MAN'S LAND</option>
-                    <option value="STORM HOSTILE OBJECTIVE">STORM HOSTILE OBJECTIVE</option>
-                    <option disabled value="--- Fixed objectives --">-- Fixed objectives --</option>
-                    <option value="ASSASSINATION (Fixed)">ASSASSINATION (Fixed)</option>
-                    <option value="BEHIND ENEMY LINES (Fixed)">BEHIND ENEMY LINES (Fixed)</option>
-                    <option value="BRING IT DOWN (Fixed)">BRING IT DOWN (Fixed)</option>
-                    <option value="ENGAGE ON ALL FRONTS (Fixed)">ENGAGE ON ALL FRONTS (Fixed)</option>
-                    <option value="STORM HOSTILE OBJECTIVE (Fixed)">STORM HOSTILE OBJECTIVE (Fixed)</option>
-                    <option value="CLEANSE (Fixed)">CLEANSE (Fixed)</option>
-                    <option value="DEPLOY TELEPORT HOMER (Fixed)">DEPLOY TELEPORT HOMER (Fixed)</option>
-                    <option value="blank"></option>
-                </select>
-                    </h3>
+                </h3>
+                <h2>Active Secondaries</h2>
+                <h3 class="sec"><span class="vpsecondary" id="leftsecondary1"></span>
+                    <select id="secondary1left" class="secondaryselector">
+                        <option value="-- Select --">-- Select --</option>
+                        <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
+                        <option value="AREA DENIAL">AREA DENIAL</option>
+                        <option value="ASSASSINATION">ASSASSINATION</option>
+                        <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                        <option value="BRING IT DOWN">BRING IT DOWN</option>
+                        <option value="CAPTURE ENEMY OUTPOST">CAPTURE ENEMY OUTPOST</option>
+                        <option value="CLEANSE">CLEANSE</option>
+                        <option value="DEFEND STRONGHOLD">DEFEND STRONGHOLD</option>
+                        <option value="DEPLOY TELEPORT HOMER">DEPLOY TELEPORT HOMER</option>
+                        <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                        <option value="EXTEND BATTLE LINES">EXTEND BATTLE LINES</option>
+                        <option value="INVESTIGATE SIGNALS">INVESTIGATE SIGNALS</option>
+                        <option value="NO PRISONERS">NO PRISONERS</option>
+                        <option value="OVERWHELMING FORCE">OVERWHELMING FORCE</option>
+                        <option value="SECURE NO MAN'S LAND">SECURE NO MAN'S LAND</option>
+                        <option value="STORM HOSTILE OBJECTIVE">STORM HOSTILE OBJECTIVE</option>
+                        <option disabled value="--- Fixed objectives --">-- Fixed objectives --</option>
+                        <option value="ASSASSINATION (Fixed)">ASSASSINATION (Fixed)</option>
+                        <option value="BEHIND ENEMY LINES (Fixed)">BEHIND ENEMY LINES (Fixed)</option>
+                        <option value="BRING IT DOWN (Fixed)">BRING IT DOWN (Fixed)</option>
+                        <option value="ENGAGE ON ALL FRONTS (Fixed)">ENGAGE ON ALL FRONTS (Fixed)</option>
+                        <option value="STORM HOSTILE OBJECTIVE (Fixed)">STORM HOSTILE OBJECTIVE (Fixed)</option>
+                        <option value="CLEANSE (Fixed)">CLEANSE (Fixed)</option>
+                        <option value="DEPLOY TELEPORT HOMER (Fixed)">DEPLOY TELEPORT HOMER (Fixed)</option>
+                        <option value="blank"></option>
+                    </select>
+                </h3>
                 <h3 class="sec"><span class="vpsecondary" id="leftsecondary2"></span>
                     <span style="margin-left:10px;display:none;"><span id="secvp2left"></span>
-                    </h3>
-
-
-                    
-                    <h3 class="sec" ><span class="vpsecondary" id="leftsecondary2"></span>
+                </h3>
 
 
 
-                    <select id="secondary2left" class="secondaryselector"> 
+                <h3 class="sec"><span class="vpsecondary" id="leftsecondary2"></span>
+
+
+
+                    <select id="secondary2left" class="secondaryselector">
                         <option value="-- Select --">-- Select --</option>
                         <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
                         <option value="AREA DENIAL">AREA DENIAL</option>
@@ -157,13 +228,13 @@
                         <option value="CLEANSE (Fixed)">CLEANSE (Fixed)</option>
                         <option value="DEPLOY TELEPORT HOMER (Fixed)">DEPLOY TELEPORT HOMER (Fixed)</option>
                         <option value="blank"></option>
-                </select>
-                    </h3>
+                    </select>
+                </h3>
                 <h3 class="sec"><span class="vpsecondary" id="leftsecondary3"></span>
                     <span style="margin-left:10px; display:none;"><span id="secvp3left"></span>
-                    </h3>
-                    <h3 class="sec"><span class="vpsecondary" id="leftsecondary3"></span>
-                    <select id="secondary3left" class="secondaryselector"> 
+                </h3>
+                <h3 class="sec"><span class="vpsecondary" id="leftsecondary3"></span>
+                    <select id="secondary3left" class="secondaryselector">
                         <option value="-- Select --">-- Select --</option>
                         <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
                         <option value="AREA DENIAL">AREA DENIAL</option>
@@ -190,152 +261,155 @@
                         <option value="CLEANSE (Fixed)">CLEANSE (Fixed)</option>
                         <option value="DEPLOY TELEPORT HOMER (Fixed)">DEPLOY TELEPORT HOMER (Fixed)</option>
                         <option value="blank"></option>
-                </select>
-                    </h3>
+                    </select>
+                </h3>
             </div>
         </div>
     </div>
     <div id="containerright">
         <div class="textbox textbox-right">
             <h1 class="faction wrap_right">
-                    <select class="wrap_right" name="factionright" id="factionright">
-                        <option class="wrap_right" value="-- Select faction--">-- Select faction --</option>
-                        <option value="Adeptus Custodes">Adeptus Custodes</option>
-                        <option value="Astra Militarum">Astra Militarum</option>
-                        <option value="Chaos Daemons">Chaos Daemons</option>
-                        <option value="Chaos Knights">Chaos Knights</option>
-                        <option value="Chaos Space Marines">Chaos Space Marines</option>
-                        <option value="Death Guard">Death Guard</option>
-                        <option value="Necrons">Necrons</option>
-                        <option value="Space Marines">Space Marines</option>
-                </select>  
+                <select class="wrap_right" name="factionright" id="factionright">
+                    <option class="wrap_right" value="-- Select faction--">-- Select faction --</option>
+                    <option value="Adeptus Custodes">Adeptus Custodes</option>
+                    <option value="Astra Militarum">Astra Militarum</option>
+                    <option value="Chaos Daemons">Chaos Daemons</option>
+                    <option value="Chaos Knights">Chaos Knights</option>
+                    <option value="Chaos Space Marines">Chaos Space Marines</option>
+                    <option value="Death Guard">Death Guard</option>
+                    <option value="Necrons">Necrons</option>
+                    <option value="Space Marines">Space Marines</option>
+                </select>
             </h1>
             <h2 class="role wrap_right">Defender</h2>
-            <h1 class="vpcp wrap_right"><span id="totalvpright"></span> VP <span id="cpright" class="wrap_right"></span> CP
-                <a class="vpbutton vpup" onclick="modcpright(1)">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="modcpright(-1)">&#9662</a></span></h1>
+            <h1 class="vpcp wrap_right"><span id="totalvpright"></span> VP <span id="cpright" class="wrap_right"></span>
+                CP
+                <a class="vpbutton vpup" onclick="modcpright(1)">&#9652</a>
+                <a class="vpbutton vpdown" onclick="modcpright(-1)">&#9662</a></span>
+            </h1>
             <h2 class="wrap_right">Primary mission</h2>
             <h3 class="wrap_right sec">
-            <span class="vpsecondary" id="rightprimary"><span id="primaryvpright"></span> / 50 VP 
-                <a class="vpbutton vpup" onclick="modprimaryvpright(1)">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="modprimaryvpright(-1)">&#9662</a></span>
+                <span class="vpsecondary" id="rightprimary"><span id="primaryvpright"></span> / 50 VP
+                    <a class="vpbutton vpup" onclick="modprimaryvpright(1)">&#9652</a>
+                    <a class="vpbutton vpdown" onclick="modprimaryvpright(-1)">&#9662</a></span>
             </h3>
-            
-            
-            
-            
-        <div id="containersecondaries">
-            <h2 class="wrap_right">Secondary missions</h2>
-            <h3 class="wrap_right sec">
-            <span class="vpsecondary" id="rightsecondary1"><span id="secvp1right"></span> / 40 VP
-                <a class="vpbutton vpup" onclick="modsecvp1right(1)">&#9652</a> 
-                <a class="vpbutton vpdown" onclick="modsecvp1right(-1)">&#9662</a></span>
+
+
+
+
+            <div id="containersecondaries">
+                <h2 class="wrap_right">Secondary missions</h2>
+                <h3 class="wrap_right sec">
+                    <span class="vpsecondary" id="rightsecondary1"><span id="secvp1right"></span> / 40 VP
+                        <a class="vpbutton vpup" onclick="modsecvp1right(1)">&#9652</a>
+                        <a class="vpbutton vpdown" onclick="modsecvp1right(-1)">&#9662</a></span>
                 </h3>
                 <h2 class="wrap_right">Active secondaries</h2>
-            <h3 class="wrap_right sec">
-                <select id="secondary1right" class="secondaryselector wrap_right"> 
-                    <option value="-- Select --">-- Select --</option>
-                    <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
-                    <option value="AREA DENIAL">AREA DENIAL</option>
-                    <option value="ASSASSINATION">ASSASSINATION</option>
-                    <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
-                    <option value="BRING IT DOWN">BRING IT DOWN</option>
-                    <option value="CAPTURE ENEMY OUTPOST">CAPTURE ENEMY OUTPOST</option>
-                    <option value="CLEANSE">CLEANSE</option>
-                    <option value="DEFEND STRONGHOLD">DEFEND STRONGHOLD</option>
-                    <option value="DEPLOY TELEPORT HOMER">DEPLOY TELEPORT HOMER</option>
-                    <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
-                    <option value="EXTEND BATTLE LINES">EXTEND BATTLE LINES</option>
-                    <option value="INVESTIGATE SIGNALS">INVESTIGATE SIGNALS</option>
-                    <option value="NO PRISONERS">NO PRISONERS</option>
-                    <option value="OVERWHELMING FORCE">OVERWHELMING FORCE</option>
-                    <option value="SECURE NO MAN'S LAND">SECURE NO MAN'S LAND</option>
-                    <option value="STORM HOSTILE OBJECTIVE">STORM HOSTILE OBJECTIVE</option>
-                    <option disabled value="--- Fixed objectives --">-- Fixed objectives --</option>
-                    <option value="ASSASSINATION (Fixed)">ASSASSINATION (Fixed)</option>
-                    <option value="BEHIND ENEMY LINES (Fixed)">BEHIND ENEMY LINES (Fixed)</option>
-                    <option value="BRING IT DOWN (Fixed)">BRING IT DOWN (Fixed)</option>
-                    <option value="ENGAGE ON ALL FRONTS (Fixed)">ENGAGE ON ALL FRONTS (Fixed)</option>
-                    <option value="STORM HOSTILE OBJECTIVE (Fixed)">STORM HOSTILE OBJECTIVE (Fixed)</option>
-                    <option value="CLEANSE (Fixed)">CLEANSE (Fixed)</option>
-                    <option value="DEPLOY TELEPORT HOMER (Fixed)">DEPLOY TELEPORT HOMER (Fixed)</option>
-                    <option value="blank"></option>
-                </select>
-                </h3>
-        <h3 class="wrap_right sec">
-            <span class="vpsecondary" id="rightsecondary2"><span id="secvp2right"></span>
-                </h3>
-
-
-        <h3 class="wrap_right sec">
-            <select id="secondary2right" class="secondaryselector wrap_right"> 
-                <option value="-- Select --">-- Select --</option>
-                <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
-                <option value="AREA DENIAL">AREA DENIAL</option>
-                <option value="ASSASSINATION">ASSASSINATION</option>
-                <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
-                <option value="BRING IT DOWN">BRING IT DOWN</option>
-                <option value="CAPTURE ENEMY OUTPOST">CAPTURE ENEMY OUTPOST</option>
-                <option value="CLEANSE">CLEANSE</option>
-                <option value="DEFEND STRONGHOLD">DEFEND STRONGHOLD</option>
-                <option value="DEPLOY TELEPORT HOMER">DEPLOY TELEPORT HOMER</option>
-                <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
-                <option value="EXTEND BATTLE LINES">EXTEND BATTLE LINES</option>
-                <option value="INVESTIGATE SIGNALS">INVESTIGATE SIGNALS</option>
-                <option value="NO PRISONERS">NO PRISONERS</option>
-                <option value="OVERWHELMING FORCE">OVERWHELMING FORCE</option>
-                <option value="SECURE NO MAN'S LAND">SECURE NO MAN'S LAND</option>
-                <option value="STORM HOSTILE OBJECTIVE">STORM HOSTILE OBJECTIVE</option>
-                <option disabled value="--- Fixed objectives --">-- Fixed objectives --</option>
-                <option value="ASSASSINATION (Fixed)">ASSASSINATION (Fixed)</option>
-                <option value="BEHIND ENEMY LINES (Fixed)">BEHIND ENEMY LINES (Fixed)</option>
-                <option value="BRING IT DOWN (Fixed)">BRING IT DOWN (Fixed)</option>
-                <option value="ENGAGE ON ALL FRONTS (Fixed)">ENGAGE ON ALL FRONTS (Fixed)</option>
-                <option value="STORM HOSTILE OBJECTIVE (Fixed)">STORM HOSTILE OBJECTIVE (Fixed)</option>
-                <option value="CLEANSE (Fixed)">CLEANSE (Fixed)</option>
-                <option value="DEPLOY TELEPORT HOMER (Fixed)">DEPLOY TELEPORT HOMER (Fixed)</option>
-                <option value="blank"></option>
-        </select> 
-        <h3 class="wrap_right sec">
-            <span class="vpsecondary" id="rightsecondary3"><span id="secvp3right"></span>
+                <h3 class="wrap_right sec">
+                    <select id="secondary1right" class="secondaryselector wrap_right">
+                        <option value="-- Select --">-- Select --</option>
+                        <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
+                        <option value="AREA DENIAL">AREA DENIAL</option>
+                        <option value="ASSASSINATION">ASSASSINATION</option>
+                        <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                        <option value="BRING IT DOWN">BRING IT DOWN</option>
+                        <option value="CAPTURE ENEMY OUTPOST">CAPTURE ENEMY OUTPOST</option>
+                        <option value="CLEANSE">CLEANSE</option>
+                        <option value="DEFEND STRONGHOLD">DEFEND STRONGHOLD</option>
+                        <option value="DEPLOY TELEPORT HOMER">DEPLOY TELEPORT HOMER</option>
+                        <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                        <option value="EXTEND BATTLE LINES">EXTEND BATTLE LINES</option>
+                        <option value="INVESTIGATE SIGNALS">INVESTIGATE SIGNALS</option>
+                        <option value="NO PRISONERS">NO PRISONERS</option>
+                        <option value="OVERWHELMING FORCE">OVERWHELMING FORCE</option>
+                        <option value="SECURE NO MAN'S LAND">SECURE NO MAN'S LAND</option>
+                        <option value="STORM HOSTILE OBJECTIVE">STORM HOSTILE OBJECTIVE</option>
+                        <option disabled value="--- Fixed objectives --">-- Fixed objectives --</option>
+                        <option value="ASSASSINATION (Fixed)">ASSASSINATION (Fixed)</option>
+                        <option value="BEHIND ENEMY LINES (Fixed)">BEHIND ENEMY LINES (Fixed)</option>
+                        <option value="BRING IT DOWN (Fixed)">BRING IT DOWN (Fixed)</option>
+                        <option value="ENGAGE ON ALL FRONTS (Fixed)">ENGAGE ON ALL FRONTS (Fixed)</option>
+                        <option value="STORM HOSTILE OBJECTIVE (Fixed)">STORM HOSTILE OBJECTIVE (Fixed)</option>
+                        <option value="CLEANSE (Fixed)">CLEANSE (Fixed)</option>
+                        <option value="DEPLOY TELEPORT HOMER (Fixed)">DEPLOY TELEPORT HOMER (Fixed)</option>
+                        <option value="blank"></option>
+                    </select>
                 </h3>
                 <h3 class="wrap_right sec">
-            <select id="secondary3right" class="secondaryselector wrap_right"> 
-                <option value="-- Select --">-- Select --</option>
-                <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
-                <option value="AREA DENIAL">AREA DENIAL</option>
-                <option value="ASSASSINATION">ASSASSINATION</option>
-                <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
-                <option value="BRING IT DOWN">BRING IT DOWN</option>
-                <option value="CAPTURE ENEMY OUTPOST">CAPTURE ENEMY OUTPOST</option>
-                <option value="CLEANSE">CLEANSE</option>
-                <option value="DEFEND STRONGHOLD">DEFEND STRONGHOLD</option>
-                <option value="DEPLOY TELEPORT HOMER">DEPLOY TELEPORT HOMER</option>
-                <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
-                <option value="EXTEND BATTLE LINES">EXTEND BATTLE LINES</option>
-                <option value="INVESTIGATE SIGNALS">INVESTIGATE SIGNALS</option>
-                <option value="NO PRISONERS">NO PRISONERS</option>
-                <option value="OVERWHELMING FORCE">OVERWHELMING FORCE</option>
-                <option value="SECURE NO MAN'S LAND">SECURE NO MAN'S LAND</option>
-                <option value="STORM HOSTILE OBJECTIVE">STORM HOSTILE OBJECTIVE</option>
-                <option disabled value="--- Fixed objectives --">-- Fixed objectives --</option>
-                <option value="ASSASSINATION (Fixed)">ASSASSINATION (Fixed)</option>
-                <option value="BEHIND ENEMY LINES (Fixed)">BEHIND ENEMY LINES (Fixed)</option>
-                <option value="BRING IT DOWN (Fixed)">BRING IT DOWN (Fixed)</option>
-                <option value="ENGAGE ON ALL FRONTS (Fixed)">ENGAGE ON ALL FRONTS (Fixed)</option>
-                <option value="STORM HOSTILE OBJECTIVE (Fixed)">STORM HOSTILE OBJECTIVE (Fixed)</option>
-                <option value="CLEANSE (Fixed)">CLEANSE (Fixed)</option>
-                <option value="DEPLOY TELEPORT HOMER (Fixed)">DEPLOY TELEPORT HOMER (Fixed)</option>
-                <option value="blank"></option> 
-            </select>
-            
-        </h3>
-    </div>
+                    <span class="vpsecondary" id="rightsecondary2"><span id="secvp2right"></span>
+                </h3>
+
+
+                <h3 class="wrap_right sec">
+                    <select id="secondary2right" class="secondaryselector wrap_right">
+                        <option value="-- Select --">-- Select --</option>
+                        <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
+                        <option value="AREA DENIAL">AREA DENIAL</option>
+                        <option value="ASSASSINATION">ASSASSINATION</option>
+                        <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                        <option value="BRING IT DOWN">BRING IT DOWN</option>
+                        <option value="CAPTURE ENEMY OUTPOST">CAPTURE ENEMY OUTPOST</option>
+                        <option value="CLEANSE">CLEANSE</option>
+                        <option value="DEFEND STRONGHOLD">DEFEND STRONGHOLD</option>
+                        <option value="DEPLOY TELEPORT HOMER">DEPLOY TELEPORT HOMER</option>
+                        <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                        <option value="EXTEND BATTLE LINES">EXTEND BATTLE LINES</option>
+                        <option value="INVESTIGATE SIGNALS">INVESTIGATE SIGNALS</option>
+                        <option value="NO PRISONERS">NO PRISONERS</option>
+                        <option value="OVERWHELMING FORCE">OVERWHELMING FORCE</option>
+                        <option value="SECURE NO MAN'S LAND">SECURE NO MAN'S LAND</option>
+                        <option value="STORM HOSTILE OBJECTIVE">STORM HOSTILE OBJECTIVE</option>
+                        <option disabled value="--- Fixed objectives --">-- Fixed objectives --</option>
+                        <option value="ASSASSINATION (Fixed)">ASSASSINATION (Fixed)</option>
+                        <option value="BEHIND ENEMY LINES (Fixed)">BEHIND ENEMY LINES (Fixed)</option>
+                        <option value="BRING IT DOWN (Fixed)">BRING IT DOWN (Fixed)</option>
+                        <option value="ENGAGE ON ALL FRONTS (Fixed)">ENGAGE ON ALL FRONTS (Fixed)</option>
+                        <option value="STORM HOSTILE OBJECTIVE (Fixed)">STORM HOSTILE OBJECTIVE (Fixed)</option>
+                        <option value="CLEANSE (Fixed)">CLEANSE (Fixed)</option>
+                        <option value="DEPLOY TELEPORT HOMER (Fixed)">DEPLOY TELEPORT HOMER (Fixed)</option>
+                        <option value="blank"></option>
+                    </select>
+                    <h3 class="wrap_right sec">
+                        <span class="vpsecondary" id="rightsecondary3"><span id="secvp3right"></span>
+                    </h3>
+                    <h3 class="wrap_right sec">
+                        <select id="secondary3right" class="secondaryselector wrap_right">
+                            <option value="-- Select --">-- Select --</option>
+                            <option value="A TEMPTING TARGET">A TEMPTING TARGET</option>
+                            <option value="AREA DENIAL">AREA DENIAL</option>
+                            <option value="ASSASSINATION">ASSASSINATION</option>
+                            <option value="BEHIND ENEMY LINES">BEHIND ENEMY LINES</option>
+                            <option value="BRING IT DOWN">BRING IT DOWN</option>
+                            <option value="CAPTURE ENEMY OUTPOST">CAPTURE ENEMY OUTPOST</option>
+                            <option value="CLEANSE">CLEANSE</option>
+                            <option value="DEFEND STRONGHOLD">DEFEND STRONGHOLD</option>
+                            <option value="DEPLOY TELEPORT HOMER">DEPLOY TELEPORT HOMER</option>
+                            <option value="ENGAGE ON ALL FRONTS">ENGAGE ON ALL FRONTS</option>
+                            <option value="EXTEND BATTLE LINES">EXTEND BATTLE LINES</option>
+                            <option value="INVESTIGATE SIGNALS">INVESTIGATE SIGNALS</option>
+                            <option value="NO PRISONERS">NO PRISONERS</option>
+                            <option value="OVERWHELMING FORCE">OVERWHELMING FORCE</option>
+                            <option value="SECURE NO MAN'S LAND">SECURE NO MAN'S LAND</option>
+                            <option value="STORM HOSTILE OBJECTIVE">STORM HOSTILE OBJECTIVE</option>
+                            <option disabled value="--- Fixed objectives --">-- Fixed objectives --</option>
+                            <option value="ASSASSINATION (Fixed)">ASSASSINATION (Fixed)</option>
+                            <option value="BEHIND ENEMY LINES (Fixed)">BEHIND ENEMY LINES (Fixed)</option>
+                            <option value="BRING IT DOWN (Fixed)">BRING IT DOWN (Fixed)</option>
+                            <option value="ENGAGE ON ALL FRONTS (Fixed)">ENGAGE ON ALL FRONTS (Fixed)</option>
+                            <option value="STORM HOSTILE OBJECTIVE (Fixed)">STORM HOSTILE OBJECTIVE (Fixed)</option>
+                            <option value="CLEANSE (Fixed)">CLEANSE (Fixed)</option>
+                            <option value="DEPLOY TELEPORT HOMER (Fixed)">DEPLOY TELEPORT HOMER (Fixed)</option>
+                            <option value="blank"></option>
+                        </select>
+
+                    </h3>
+            </div>
         </div>
     </div>
-    
-    <script src="40k.js"></script>
-   
 
-  </body>
+    <script src="40k.js"></script>
+
+
+</body>
+
 </html>

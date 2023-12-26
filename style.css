@@ -95,6 +95,39 @@ a#resetButton {
     margin-left: 10px;
     top: 173px;
 }
+.rulepopup{
+    font-family: 'Times New Roman', Times, serif;
+    z-index: 100;
+    width: 33%;
+    background: black;
+    height: 63%;
+    margin: 0 auto;
+    position: absolute;
+    left: 33%;
+    top: 31%;
+    overflow: scroll;
+    padding: 2%;
+    background: white;
+    color: black;
+    text-shadow: none;    
+}
+.rulepopup > p{
+    font-size:1em;
+}
+.chdfaq{
+    overflow:hidden !important;
+}
+.rulepopup > h3{
+    font-size: 1.4em;
+    margin: 0px 0px 4px 0px;
+    font-family: 'ConduitITC', arial;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-block-start: 0px;
+    align-items: center;
+    display: flex;
+    
+}
 #containerprimary{
     display:none;
     /*position:absolute;*/
