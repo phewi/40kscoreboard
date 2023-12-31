@@ -26,14 +26,14 @@ function updateTimer() {
         updateDisplay();
 
         // Play the alert sound at the 30-minute mark
-        if (timeRemaining === 30 * 60) {
+        if (timeRemaining === 15 * 60) {
             playAlertSound();
         }
     } else {
         clearInterval(timer);
         timerRunning = false;
         playAlertSound(); // Play the alert sound when the timer reaches zero
-        alert("Timer reached 0:00");
+        //alert("Timer reached 0:00");
         document.getElementById('timer').innerText = '45:00'; // Reset to initial time
     }
 }
