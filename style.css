@@ -130,12 +130,12 @@ a#resetButton {
 }
 #containerprimary{
     display:none;
-    /*position:absolute;*/
+    
     text-align: center;
     
     margin:0 auto;
     width:481px;
-    bottom:0;
+    bottom:40%;
     background-color: Black;
     position: absolute;
     left: 50%;
