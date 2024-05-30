@@ -76,7 +76,7 @@
         <h3><a class="roundmargin" onclick="modround(-1)">&#9666</a>ROUND <span style="margin-left:10px;"><span
                     id="currentround"></span><a class="roundmargin" onclick="modround(1)">&#9656</a></h3>
         <h3><a onclick="changecurrentplayer()"><span id="currentplayer"></span></a></h3>
-        <h3><a onclick="modphase(-1)">&#9666</a> <span id="currentphase"></span> <a onclick="modphase(1)">&#9656</a>
+        <h3><a onclick="modphase(-1)">&#9666</a> <span id="currentphase"></span> <a onclick="modphase(1);battleshockreminder()">&#9656</a>
         </h3>
         <h3 id="timer" onclick="startPauseTimer()">45:00</h3>
 
@@ -85,6 +85,7 @@
         <script src="timer.js"></script>
 
         <audio id="alertSound" src="alert.mp3"></audio>
+        <audio id="battleshockSound" src="battleshockreminder.mp3"></audio>
     </div>
     <script src="displayrules.js"></script>
 

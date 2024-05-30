@@ -53,12 +53,17 @@ function changecurrentplayer(){
         document.getElementById("currentplayer").innerHTML = factionright;
     }
 }
+function battleshockreminder(){
+    if(currentphase==1){
+        sound = document.getElementById('battleshockSound');
+        sound.play();
+    }
+}
+
 function modphase(value){
-    factionright = localStorage.getItem('factionright');
     currentplayer = localStorage.getItem('currentplayer');
     //forwards in phases
     if(value>0){
-        
         if(currentphase<6){
             currentphase++;
         }
