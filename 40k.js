@@ -322,10 +322,7 @@ window.onload = function(){
     //load dropdowns and set them to default if not in local storage
     //if(!localStorage['mission']){
     //    localStorage.setItem('mission','-- Select mission--');}
-    if(!localStorage['factionleft']){
-        localStorage.setItem('factionleft','-- Select faction--');}
-    if(!localStorage['factionright']){
-        localStorage.setItem('factionright','-- Select faction--');}
+
     if(!localStorage['secondary1right']){
         localStorage.setItem('secondary1right','-- Select --');}
     if(!localStorage['secondary2right']){
@@ -342,7 +339,10 @@ window.onload = function(){
         localStorage.setItem('secondary2left','-- Select --');}
     if(!localStorage['secondary3left']){
         localStorage.setItem('secondary3left','-- Select --');}   
-    
+    if(!localStorage['factionleft']){
+        localStorage.setItem('factionleft','-- Select faction --');}
+    if(!localStorage['factionright']){
+        localStorage.setItem('factionright','-- Select faction --');}    
 
     //document.getElementById("mission").value = localStorage['mission'];
     document.getElementById("factionright").value = localStorage['factionright'];
@@ -357,6 +357,8 @@ window.onload = function(){
 
     //load cp and vp values and set them to default if not in local storage
     
+    if(!localStorage['factionleft']){localStorage.setItem('factionleft','-- Select faction --');}
+    if(!localStorage['factionright']){localStorage.setItem('factionright','-- Select faction --');}
     if(!localStorage['cpright']){localStorage.setItem('cpright',0);}
     if(!localStorage['cpleft']){localStorage.setItem('cpleft',0);}
     if(!localStorage['totalvpleft']){localStorage.setItem('totalvpleft',0);}

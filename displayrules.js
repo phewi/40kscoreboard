@@ -31,23 +31,23 @@ function togglesetuprules() {
     if (userResponse) {
         // User clicked "Yes"
             
-    localStorage.setItem('cpright',0);
-    localStorage.setItem('cpleft',0);
-    localStorage.setItem('totalvpleft',0);
-    localStorage.setItem('totalvpright',0);
-    localStorage.setItem('secvp1left',0);
-    localStorage.setItem('secvp2left',0);
-    localStorage.setItem('secvp3left',0);
-    localStorage.setItem('secvp1right',0);
-    localStorage.setItem('secvp2right',0);
-    localStorage.setItem('secvp3right',0);
-    localStorage.setItem('primaryvpleft',0);
-    localStorage.setItem('primaryvpright',0);
-    localStorage.setItem('currentphase',1);
-    localStorage.setItem('currentround',1);
-    localStorage.setItem('currentplayer',"-- Select faction --");
-    localStorage.setItem('factionright',"-- Select faction --");
-    localStorage.setItem('factionleft',"-- Select faction --");
+    localStorage.clear('cpright');
+    localStorage.clear('cpleft');
+    localStorage.clear('totalvpleft');
+    localStorage.clear('totalvpright');
+    localStorage.clear('secvp1left');
+    localStorage.clear('secvp2left');
+    localStorage.clear('secvp3left');
+    localStorage.clear('secvp1right');
+    localStorage.clear('secvp2right');
+    localStorage.clear('secvp3right');
+    localStorage.clear('primaryvpleft');
+    localStorage.clear('primaryvpright');
+    localStorage.clear('currentphase');
+    localStorage.clear('currentround');
+    localStorage.clear('currentplayer');
+    localStorage.clear('factionright');
+    localStorage.clear('factionleft');
     location.reload();
     }
     else {
