@@ -56,7 +56,7 @@ function changecurrentplayer(){
 function battleshockreminder(){
     if(currentphase==1){
         sound = document.getElementById('battleshockSound');
-        sound.play();
+        //sound.play();
     }
 }
 
