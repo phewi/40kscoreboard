@@ -44,7 +44,7 @@ function togglesetuprules() {
     localStorage.clear('primaryvpleft');
     localStorage.clear('primaryvpright');
     localStorage.clear('currentphase');
-    localStorage.clear('currentround');
+    localStorage.setItem('currentround',1);
     localStorage.clear('currentplayer');
     localStorage.clear('factionright');
     localStorage.clear('factionleft');
