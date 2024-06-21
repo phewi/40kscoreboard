@@ -9,6 +9,60 @@ document.addEventListener('keydown', function(event) {
     if (event.key === '0') {
         confirmReset();
     }
+    //keybinds for attacker
+    if (event.key === 'q') {
+        modcpleft(-1);
+    }
+    if (event.key === 'w') {
+        modcpleft(1);
+    }
+    if (event.key === 'a') {
+        modprimaryvpleft(-1)
+    }
+    if (event.key === 's') {
+        modprimaryvpleft(1)
+    }   
+    if (event.key === 'z') {
+        modsecvp1left(-1)
+    }
+    if (event.key === 'x') {
+        modsecvp1left(1)
+    }   
+    //keybinds for defender
+    if (event.key === 'e') {
+        modcpright(-1);
+    }
+    if (event.key === 'r') {
+        modcpright(1);
+    }
+    if (event.key === 'd') {
+        modprimaryvpright(-1)
+    }
+    if (event.key === 'f') {
+        modprimaryvpright(1)
+    }   
+    if (event.key === 'c') {
+        modsecvp1right(-1)
+    }
+    if (event.key === 'v') {
+        modsecvp1right(1)
+    }
+    //keybinds for round tracker
+    if (event.key === 'p') {
+        changecurrentplayer()
+    }
+    if (event.key === 'm') {
+        modphase(1)
+    }
+    if (event.key === 'n') {
+        modphase(-1)
+    }
+    if (event.key === 'y') {
+        modround(1)
+    }
+    if (event.key === 't') {
+        modround(-1)
+    }
 });
 function togglesetuprules() {
     var setuprules = document.getElementById("setuprules");
