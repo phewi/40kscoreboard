@@ -7,13 +7,12 @@ Use background image opacity 50% on top of a black background to see the text be
 
 # Todo
 
-- [ ] Reset button
+- [x] Reset button
 - [ ] Add mission objective descriptions (mouseover or infobutton maybe)
 - [ ] Add secondary objective descriptions (mouseover or infobutton maybe)
 - [ ] Generate the dropdowns from json instead of hardcoding
 - [ ] Conditional secondary mission dropdowns based on factions
-- [ ] Design a sensible hotkey scheme that can be used with a wireless keyboard or numpad
-  - [ ] Make the hotkeys work without focusing the window
+- [x] Add hotkeys
 - [ ] Mirror the background instead using more assets (maybe)
 - [ ] Separate views for editing/viewing (maybe)
 - [ ] Particle effects for bling (If a suitable one can be found)
